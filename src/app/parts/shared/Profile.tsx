@@ -1,6 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
 import { ChevronDown } from 'lucide-react'
+import {DropdownMenuComponent} from './ProfileMenu'
+
 
 function Profile() {
   return (
@@ -14,7 +16,7 @@ function Profile() {
         <p className='text-[14px] text-[var(--text-secondary)]'>edwards@gmail.com</p>
       </div>
       <div className='text-[var(--text-secondary)]'>
-        <ChevronDown />
+        <DropdownMenuComponent chevron ={ <ChevronDown />} />
       </div>
     </div>
   )

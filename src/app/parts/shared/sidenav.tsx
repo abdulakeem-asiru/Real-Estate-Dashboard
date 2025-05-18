@@ -1,5 +1,4 @@
-import Link from "next/link";
-import NavLinks from '@/app/components/nav-links';
+import NavLinks from '@/app/parts/shared/nav-links';
 import Logo from "./logo";
 
 export default function SideNav(){
