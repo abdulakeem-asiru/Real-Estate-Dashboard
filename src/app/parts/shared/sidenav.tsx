@@ -1,4 +1,4 @@
-import NavLinks from '@/app/parts/shared/nav-links';
+import NavLinkComponent from '@/app/parts/shared/nav-links';
 import Logo from "./logo";
 
 export default function SideNav(){
@@ -8,7 +8,7 @@ export default function SideNav(){
             <div className="w-32 text-white md:w-40 mb-10 hidden md:block">
           <Logo />
          </div>
-            <NavLinks />
+            <NavLinkComponent />
             </div>
         </div>
     )
