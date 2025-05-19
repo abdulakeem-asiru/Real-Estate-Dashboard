@@ -9,7 +9,7 @@ import HeaderComponent from "../parts/shared/header";
       </div>
       <div  className="flex-grow">
     <div className="h-[90px] px-6 w-full border-b-2 border-[var(--border-color)] hidden md:flex items-center"><HeaderComponent /></div>
-      <div className="p-6 md:overflow-y-auto md:p-12">{children}</div>
+      <div className="p-6 overflow-y-scroll md:p-8">{children}</div>
       </div>
     </div>
   );
