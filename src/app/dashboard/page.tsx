@@ -5,7 +5,7 @@ import CardWrapper from '../parts/dashboard/Card'
 
 const page = () => {
   return (
-    <div>
+    <div className='m-auto max-w-8xl'>
      <div className='md:flex items-center justify-between hidden'>
       <div className='w-full'>
         <h2 className='text-[24px] font-medium text-[var(--text-primary)] mb-1'>Dashboard</h2>
