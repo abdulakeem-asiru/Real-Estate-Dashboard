@@ -1,5 +1,6 @@
 import NavLinkComponent from '@/app/parts/shared/nav-links';
 import Logo from "./logo";
+import MobileHeader from './MobileHeader';
 
 export default function SideNav(){
     return(
@@ -9,6 +10,7 @@ export default function SideNav(){
           <Logo />
          </div>
             <NavLinkComponent />
+            <MobileHeader />
             </div>
         </div>
     )
