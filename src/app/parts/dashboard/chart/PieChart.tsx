@@ -18,42 +18,27 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 const chartData = [
-  { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
-  { browser: "firefox", visitors: 287, fill: "var(--color-firefox)" },
-  { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
-  { browser: "other", visitors: 190, fill: "var(--color-other)" },
+  { earning: "income", sales: 275, fill: "var(--chart-1)" },
+  { earning: "expenses", sales: 200, fill: "var(--chart-2)" },
 ]
 
 const chartConfig = {
-  visitors: {
-    label: "Visitors",
+  sales: {
+    label: "sales",
   },
-  chrome: {
-    label: "Chrome",
-    color: "hsl(var(--chart-1))",
+  income: {
+    label: "Income",
+    color: "var(--chart-1)",
   },
-  safari: {
-    label: "Safari",
-    color: "hsl(var(--chart-2))",
-  },
-  firefox: {
-    label: "Firefox",
-    color: "hsl(var(--chart-3))",
-  },
-  edge: {
-    label: "Edge",
-    color: "hsl(var(--chart-4))",
-  },
-  other: {
-    label: "Other",
-    color: "hsl(var(--chart-5))",
-  },
+  expenses: {
+    label: "Expenses",
+    color: "var(--chart-2)",
+  }
 } satisfies ChartConfig
 
 export function PieChartWrapper() {
   const totalVisitors = React.useMemo(() => {
-    return chartData.reduce((acc, curr) => acc + curr.visitors, 0)
+    return chartData.reduce((acc, curr) => acc + curr.sales, 0)
   }, [])
 
   return (
@@ -73,12 +58,15 @@ export function PieChartWrapper() {
             />
             <Pie
               data={chartData}
-              dataKey="visitors"
-              nameKey="browser"
-              innerRadius={60}
-              strokeWidth={5}
+              dataKey="sales"
+              nameKey="earning"
+              innerRadius={70}
+            outerRadius={100}
+            paddingAngle={10}
+            stroke="none"
+              strokeWidth={9}
             >
-              <Label
+              <Label className=""
                 content={({ viewBox }) => {
                   if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
@@ -100,7 +88,7 @@ export function PieChartWrapper() {
                           y={(viewBox.cy || 0) + 24}
                           className="fill-muted-foreground"
                         >
-                          Visitors
+                          Total Sales
                         </tspan>
                       </text>
                     )
@@ -116,23 +104,21 @@ export function PieChartWrapper() {
             <div className="border-2 p-2 border-[var(--border-color)] 
                     bg-[var(--bg-secondary)] rounded-lg">
 
-         <Wallet className="h-8 w-8 text-[var(--text-primary)]" /> 
+         <Wallet className="h-6 w-6 text-[var(--text-primary)]" /> 
          
             </div>
          <div className=" flex flex-col gap-1">
-            <p className="text-[var(--text-primary)] text-xl font-medium">$12,167</p>
+            <p className="text-[var(--text-primary)] text-[18px] font-medium">$12,167</p>
             <p className="text-[var(--text-secondary)] font-300 text-[14px]"> From January</p>
             </div>
         </div>
    <div className="flex items-center gap-2 font-medium leading-none">
             <div className="border-2 p-2 border-[var(--border-color)] 
                     bg-[var(--bg-secondary)] rounded-lg">
-
-         <Wallet className="h-8 w-8 text-[var(--text-primary)]" /> 
-         
+         <Wallet className="h-6 w-6 text-[var(--text-primary)]" />    
             </div>
          <div className=" flex flex-col gap-1">
-            <p className="text-[var(--text-primary)] text-xl font-medium">$12,167</p>
+            <p className="text-[var(--text-primary)] text-[18px] font-medium">$12,167</p>
             <p className="text-[var(--text-secondary)] font-300 text-[14px]"> From January</p>
             </div>
         </div>

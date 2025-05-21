@@ -24,10 +24,8 @@ const page = () => {
      <div className='md:mt-4 mt-2'>
       <CardWrapper />
      </div>
-     <div className='md:mt-4 mt-2 grid grid-cols-3 gap-4'>
-      <div className='md:col-span-2 col-span-3 max-h-[320px] 
-      flex flex-col justify-end h-full border-2 border-[var(--border-color)]
-       p-2 rounded-lg'>
+     <div className='md:mt-4 mt-4 grid grid-cols-3 gap-4'>
+      <div className='w-full md:col-span-2 col-span-3'>
       <SalesChart />
       </div>
       <div className='w-full md:col-span-1 col-span-3'>

@@ -9,6 +9,12 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+
+import {
+  Card,
+  CardContent,
+  CardHeader
+} from "@/components/ui/card"
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { chartData } from "@/app/api/data/chartData";
 import { SelectComponent } from "./SortChart";
@@ -26,19 +32,18 @@ const chartConfig = {
 
 function SalesChart() {
   return (
-  <div>
-    <div className="flex flex-col md:flex-row justify-between mx-10 my-5">
+    
+  <Card>
+    <CardHeader className="flex justify-between ">
       <p className="font-medium text-[24px] text-[var(--text-primary)]">Sales Analytics</p>
-      <SelectComponent button ={<p>
-            </p>}
-            />
+      <SelectComponent button ={<p> </p>} />
       
-    </div>
+    </CardHeader>
     <div>
-    <ChartContainer config={chartConfig} className="max-h-[220px] w-full">
+  <CardContent className="flex-1 pb-0">
+    <ChartContainer config={chartConfig} className="max-h-[250px] w-full">
       <ResponsiveContainer >
         <AreaChart data={chartData}
-        margin={{ top: 10, right: 20, left: 10, bottom: 0 }}
         accessibilityLayer>
           <defs>
             <linearGradient id="colorIncome" x1="0" y1="0" x2="0" y2="1">
@@ -90,8 +95,9 @@ function SalesChart() {
         </AreaChart>
       </ResponsiveContainer>
     </ChartContainer>
+    </ CardContent>
       </div>
-  </div>
+  </Card>
   );
 }
 
