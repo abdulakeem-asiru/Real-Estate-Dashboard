@@ -6,10 +6,12 @@ import {Home,HousePlus,
      Search,
      Bell
      } from 'lucide-react'
+     
      import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { MobileSideNav } from './MobileSideNav';
 import clsx from 'clsx';
+import { PopoverComponent } from './Notification';
 
 
 const mobileLinks = [
@@ -34,7 +36,7 @@ export default function MobileHeader(){
             <div className='flex gap-2'><MobileSideNav Hambuger={<Menu className='text-[var(--icon-secondary)]'/>}/><span className='font-medium'>Dashboard</span></div>
             <div className='flex items-center justify-center gap-6'>
             <Search className='text-[var(--icon-secondary)]'/>
-            <Bell className='text-[var(--icon-secondary)]'/>
+              <PopoverComponent BellIcon={ <Bell className='text-[var(--icon-secondary)]'/>} />
             </div>
         </div>
 

@@ -3,7 +3,7 @@ import React from 'react'
 import { Plus } from 'lucide-react'
 import CardWrapper from '../parts/dashboard/Card'
 import { Metadata } from 'next'
-import SalesChart from '../parts/dashboard/SalesChart'
+import SalesChart from '../parts/dashboard/chart/SalesChart'
 
 
 export const metadata: Metadata = {
@@ -24,7 +24,9 @@ const page = () => {
       <CardWrapper />
      </div>
      <div className='md:mt-4 mt-2 grid grid-cols-3 gap-4'>
-      <div className='md:col-span-2 col-span-3 h-100 border-2 border-[var(--border-color)] p-2 rounded-lg'>
+      <div className='md:col-span-2 col-span-3 max-h-[320px] 
+      flex flex-col justify-end h-full border-2 border-[var(--border-color)]
+       p-2 rounded-lg'>
       <SalesChart />
       </div>
       <div className='w-[350px] h-80 bg-orange-100 rounded-lg'></div>
