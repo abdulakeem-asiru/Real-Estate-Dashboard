@@ -30,7 +30,9 @@ const page = () => {
        p-2 rounded-lg'>
       <SalesChart />
       </div>
-      <PieChartWrapper />
+      <div className='w-full md:col-span-1 col-span-3'>
+        <PieChartWrapper />
+      </div>
      </div>
 
     </div>
