@@ -42,7 +42,7 @@ export default function MobileHeader(){
 
          {/* Mobile navigation */}
         <div className='md:hidden flex h-[100px] items-center justify-center p-4 w-full fixed bottom-0
-         left-0 border-t-1 border-[var(--border-color)]'>
+         left-0 border-t-1 bg-white border-[var(--border-color)]'>
        {mobileLinks.map((link) => {
         const LinkIcon = link.icon;
         return(

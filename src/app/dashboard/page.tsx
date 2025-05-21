@@ -4,6 +4,7 @@ import { Plus } from 'lucide-react'
 import CardWrapper from '../parts/dashboard/Card'
 import { Metadata } from 'next'
 import SalesChart from '../parts/dashboard/chart/SalesChart'
+import { PieChartWrapper } from '../parts/dashboard/chart/PieChart'
 
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ const page = () => {
        p-2 rounded-lg'>
       <SalesChart />
       </div>
-      <div className='w-[350px] h-80 bg-orange-100 rounded-lg'></div>
+      <PieChartWrapper />
      </div>
 
     </div>
