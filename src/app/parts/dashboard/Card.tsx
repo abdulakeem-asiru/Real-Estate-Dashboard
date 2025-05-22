@@ -51,7 +51,7 @@ export function Card({
     <p className='text-[14px] text-[var(--text-secondary)]'>{title}</p>
     <div className='flex gap-2 items-center justify-start'>
     <h2 className='text-[24px] font-medium text-[var(--text-primary)]'>{value}</h2>
-    <span className='bg-green-100 text-[12px] py-1 px-2 rounded-3xl'>+7.0%</span>
+    <span className='bg-[#42B779] text-[12px] py-1 px-2 rounded-3xl'>+7.0%</span>
     </div>
      </div>
     </div>
