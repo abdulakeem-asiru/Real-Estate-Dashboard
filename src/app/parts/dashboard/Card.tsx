@@ -17,7 +17,7 @@ const iconMap = {
 export default async function CardWrapper() {
 
   return (
-    <div className='flex flex-col md:flex-row flex-warp items-center w-full max-w-6xl justify-between gap-6'>
+    <div className='flex flex-col md:flex-row flex-warp items-center w-full justify-between gap-6'>
       {/* NOTE: Uncomment this code in Chapter 9 */}
 
       <Card title="No Of Properties" value={"2,400"} type="properties" image={Columns} />
@@ -44,7 +44,7 @@ export function Card({
   return (
     <div className=" w-full min-w-[365px] border-2 border-[var(--border-color] p-4 rounded-lg flex flex-col gap-6">
      <div className='flex justify-between items-center'>
-    {Icon ? <Icon className="h-10 w-10 text-gray-700 p-2 rounded-lg border-2 border-[var(--border-color)]" /> : null}
+    {Icon ? <Icon className="h-10 w-10 text-[var(--icon-color)] p-2 rounded-lg border-2 border-[var(--border-color)]" /> : null}
     <Image src={image} alt="Card Image" width={100} height={100}/>
      </div>
      <div>

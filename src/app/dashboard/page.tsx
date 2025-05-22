@@ -24,7 +24,7 @@ const page = () => {
      <div className='md:mt-4 mt-2'>
       <CardWrapper />
      </div>
-     <div className='md:mt-4 mt-4 grid grid-cols-3 gap-4'>
+     <div className='mt-4 grid grid-cols-3 gap-4'>
       <div className='w-full md:col-span-2 col-span-3'>
       <SalesChart />
       </div>
@@ -32,7 +32,7 @@ const page = () => {
         <PieChartWrapper />
       </div>
      </div>
-
+    <div className='w-full h-60 bg-amber-400 mt-4 rounded-lg'></div>
     </div>
   )
 }

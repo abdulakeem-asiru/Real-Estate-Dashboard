@@ -45,7 +45,7 @@ export default function NavLinkComponent(){
         return(
         <Link key={link.name}
             href={link.href}
-            className={clsx( "flex h-[40px] text-[#727272] hover:text-black  pl-3 items-center gap-2 text-[16px]",
+            className={clsx( "flex h-[40px] text-[var(--text-secondary)] hover:text-[var(--text-primary)]pl-3 items-center gap-2 text-[16px]",
              {"text-[var(--text-primary)] border-[var(--border-color)] border-2 rounded-xl font-medium": pathname === link.href,},
         )}
             >
@@ -65,7 +65,7 @@ export default function NavLinkComponent(){
         return(
         <Link key={link.name}
             href={link.href}
-            className={clsx( "flex h-[40px] text-[#727272] hover:text-black  pl-3 items-center gap-2 text-[16px]",
+            className={clsx( "flex h-[40px] text-[var(--text-secondary)] hover:text-[var(--text-primary)]  pl-3 items-center gap-2 text-[16px]",
              {"text-[var(--text-primary)]  border-[var(--border-color)] border-2 rounded-lg font-medium": pathname === link.href,},
         )}
             >

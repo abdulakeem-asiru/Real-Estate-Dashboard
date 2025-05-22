@@ -102,9 +102,9 @@ export function PieChartWrapper() {
       <CardFooter className="flex justify-around items-center gap-2 text-sm">
         <div className="flex items-center gap-2 font-medium leading-none">
             <div className="border-2 p-2 border-[var(--border-color)] 
-                    bg-[var(--bg-secondary)] rounded-lg">
+                    bg-[var(--icon-background)] rounded-lg">
 
-         <Wallet className="h-6 w-6 text-[var(--text-primary)]" /> 
+         <Wallet className="h-6 w-6 text-[var(--icon-color)]" /> 
          
             </div>
          <div className=" flex flex-col gap-1">
@@ -114,8 +114,8 @@ export function PieChartWrapper() {
         </div>
    <div className="flex items-center gap-2 font-medium leading-none">
             <div className="border-2 p-2 border-[var(--border-color)] 
-                    bg-[var(--bg-secondary)] rounded-lg">
-         <Wallet className="h-6 w-6 text-[var(--text-primary)]" />    
+                    bg-[var(--icon-background)] rounded-lg">
+         <Wallet className="h-6 w-6 text-[var(--icon-color)]" />    
             </div>
          <div className=" flex flex-col gap-1">
             <p className="text-[var(--text-primary)] text-[18px] font-medium">$12,167</p>

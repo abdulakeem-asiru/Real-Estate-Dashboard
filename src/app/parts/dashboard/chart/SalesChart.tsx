@@ -33,15 +33,14 @@ const chartConfig = {
 function SalesChart() {
   return (
     
-  <Card>
+  <Card className="h-full ">
     <CardHeader className="flex justify-between ">
       <p className="font-medium text-[24px] text-[var(--text-primary)]">Sales Analytics</p>
       <SelectComponent button ={<p> </p>} />
       
     </CardHeader>
-    <div>
   <CardContent className="flex-1 pb-0">
-    <ChartContainer config={chartConfig} className="max-h-[250px] w-full">
+    <ChartContainer config={chartConfig} className="max-h-[300px] w-full">
       <ResponsiveContainer >
         <AreaChart data={chartData}
         accessibilityLayer>
@@ -96,7 +95,6 @@ function SalesChart() {
       </ResponsiveContainer>
     </ChartContainer>
     </ CardContent>
-      </div>
   </Card>
   );
 }

@@ -35,8 +35,8 @@ input[type="number"]::-webkit-outer-spin-button {
 :root {
   --primary-color: #E46323;
   --border-color: #e0e0e0;
-  --bg-secondary : #FAFAFA;
-  --icon-secondary: #727272;
+  --icon-background : #FAFAFA;
+  --icon-color: #727272;
   --text-secondary: #727272;
   --text-primary: #2e2e2e; 
   --radius: 0.625rem;
@@ -113,6 +113,12 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .dark {
+  --primary-color: #E46323;
+  --border-color: #616161;
+  --icon-background : #383838;
+  --icon-color: #FAFAFA;
+  --text-secondary: #E0E0E0;
+  --text-primary: #ffffff; 
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);

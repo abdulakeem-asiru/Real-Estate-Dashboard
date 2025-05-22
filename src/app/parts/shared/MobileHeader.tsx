@@ -42,13 +42,13 @@ export default function MobileHeader(){
 
          {/* Mobile navigation */}
         <div className='md:hidden flex h-[100px] items-center justify-center p-4 w-full fixed bottom-0
-         left-0 border-t-1 bg-white border-[var(--border-color)]'>
+         left-0 border-t-1 border-[var(--border-color)]'>
        {mobileLinks.map((link) => {
         const LinkIcon = link.icon;
         return(
         <Link key={link.name}
             href={link.href}
-            className={clsx( "flex flex-col md:flex-row h-[48px] text-[#727272] hover:text-black items-center justify-center w-full",
+            className={clsx( "flex flex-col md:flex-row h-[48px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] items-center justify-center w-full",
              {"text-[var(--primary-color)] pl-3 ": pathname === link.href,},
         )}
             >
