@@ -22,7 +22,7 @@ const page = () => {
       <Button className='bg-[var(--primary-color)] cursor-pointer
       py-5 px-6 text-white hover:bg-[var(--primary-color)]'><span><Plus /></span><span className='hidden md:block '>Add Property</span> </Button>
      </div>
-     <div className='md:mt-4 mt-2'>
+     <div className='md:mt-4 '>
       <CardWrapper />
      </div>
      <div className='mt-4 grid grid-cols-3 gap-4'>

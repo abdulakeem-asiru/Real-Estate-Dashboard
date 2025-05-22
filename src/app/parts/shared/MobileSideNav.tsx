@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button"
 import { ReactNode } from "react";
 import {
   Sheet,
@@ -12,6 +11,7 @@ import {
 } from "@/components/ui/sheet"
 import Logo from "./logo";
 import MobileNavLink from "./MobileNavLink";
+import ThemeToggle from "./ThemeToggle";
 
 interface MobileSideNavProp {
   Hambuger?: ReactNode; 
@@ -32,8 +32,8 @@ export function MobileSideNav({Hambuger} : MobileSideNavProp) {
         </SheetHeader>
       <MobileNavLink />
         <SheetFooter>
-          <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
+          <SheetClose >
+            <ThemeToggle />
           </SheetClose>
         </SheetFooter>
       </SheetContent>

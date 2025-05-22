@@ -13,7 +13,11 @@ export default function SideNav(){
             <NavLinkComponent />
             <MobileHeader />
             </div>
+            <div className='flex-1 mb-10'></div>
+            <div className='max-md:hidden'>
             <ThemeToggle />
+            </div>
+            
         </div>
     )
 }
