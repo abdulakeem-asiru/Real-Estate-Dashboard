@@ -29,10 +29,9 @@ export default function MobileHeader(){
     const pathname = usePathname();
     return(
         <>
-
         {/* Mobile Header */}
-        <div className='flex justify-between items-center pb-4 md:hidden border-b-2 
-            border-[var(--border-color)]'>
+        <div className='flex justify-between items-center w-full top-0 left-0 p-4 md:hidden border-b-2 fixed
+            border-[var(--border-color)] bg-[var(--background)] z-10'>
             <div className='flex gap-2'><MobileSideNav Hambuger={<Menu className='text-[var(--icon-secondary)]'/>}/><span className='font-medium'>Dashboard</span></div>
             <div className='flex items-center justify-center gap-6'>
             <Search className='text-[var(--icon-secondary)]'/>
