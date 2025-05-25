@@ -48,10 +48,10 @@ export default function MobileHeader(){
         <Link key={link.name}
             href={link.href}
             className={clsx( "flex flex-col md:flex-row h-[48px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] items-center justify-center w-full",
-             {"text-[var(--primary-color)] pl-3 ": pathname === link.href,},
+             {"text-[var(--primary-color)]  ": pathname === link.href,},
         )}
             >
-             <LinkIcon className="w-8" />
+             <LinkIcon className={clsx("w-8 h-7", {"text-[var(--primary-color)]" : pathname === link.href})}  />
             <p className="max-sm:hidden">{link.name}</p>
             </Link>)
         })}
