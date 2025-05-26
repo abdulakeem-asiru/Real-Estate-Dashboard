@@ -3,9 +3,9 @@ import Header from "../parts/authui/Header";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="w-full flex justify-center items-center min-h-screen md:p-4 p-2 ">
+    <div className="w-full flex justify-center md:items-center items-start min-h-screen md:p-4 p-2 ">
       <div className="flex w-full max-w-[1440px] gap-2 justify-center items-start">
-        <div className="md:w-[50%] w-full min-h-full px-8 py-12  flex flex-col justify-center gap-6 ">
+        <div className="md:w-[50%] w-full min-h-full md:px-8 px-2 py-12 flex flex-col justify-center gap-6 ">
          <Header />
           {children}
           </div>
