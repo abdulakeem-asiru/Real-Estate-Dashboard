@@ -1,14 +1,19 @@
 import React from 'react'
 import Image from 'next/image'
 
+interface styleProp{
+  style : string,
+  width : number,
+  height : number
 
-const Logo = () => {
+}
+const Logo = ({style, width, height} : styleProp) => {
   return (
     <div
-      className={"flex flex-row gap-2 items-center leading-none "}
+      className={style}
     >
-      <Image src="/logo.png"  alt="logo" width={40} height={40}/>
-      <p className="text-[20px] text-[var(--text-primary)] font-medium">Netify</p>
+      <Image src="/logo.png"  alt="logo" width={width} height={height}/>
+      <p className="text-[var(--text-primary)] font-medium">Netify</p>
     </div>
   )
 }

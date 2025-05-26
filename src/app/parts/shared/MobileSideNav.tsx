@@ -25,7 +25,7 @@ export function MobileSideNav({Hambuger} : MobileSideNavProp) {
       <SheetContent side="left" className="overflow-y-scroll srollbar-hide">
         <SheetHeader>
           
-          <SheetTitle><Logo /></SheetTitle>
+          <SheetTitle><Logo style="flex flex-row gap-2 items-center leading-none text-[24px]" width={40} height={40}/></SheetTitle>
           <SheetDescription>
             Your one stop platform for all Real Estate 
           </SheetDescription>

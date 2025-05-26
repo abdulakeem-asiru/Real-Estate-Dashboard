@@ -33,6 +33,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 :root {
+  --banner-bg : #feede2;
   --primary-color: #E46323;
   --border-color: #e0e0e0;
   --icon-background : #FAFAFA;
@@ -113,6 +114,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .dark {
+  --banner-bg : #616161;
   --primary-color: #E46323;
   --border-color: #616161;
   --icon-background : #383838;
