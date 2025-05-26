@@ -20,15 +20,11 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 import Image from 'next/image'
+import CustomerForm from '@/app/parts/authui/SignUpForms/CustomerForm'
 
-const CustomerForm = () =>{
+const Customer = () =>{
   return(
      <Card className='border-none shadow-none'>
-          {/* <CardHeader>
-            <CardTitle></CardTitle>
-            <CardDescription>
-            </CardDescription>
-          </CardHeader> */}
           <CardContent className="space-y-2">
             <div className='grid grid-cols-2 gap-4 justify-center items-start w-full'>
               <Button className='max-md:col-span-2 flex gap-2 h-[50px] bg-transparent border-[var(--border-color)] border-2 text-sm font-medium p-4 hover:bg-transparent hover:scale-[1.1] cursor-pointer text-[var(--text-secondary)] '><Image src={google} alt='google icon' width={30} height={30}/>Sign Up with Google</Button>
@@ -40,17 +36,10 @@ const CustomerForm = () =>{
   <hr className="flex-grow border-[var(--border-color)] " />
 </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" defaultValue="Pedro Duarte" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="username">Username</Label>
-              <Input id="username" defaultValue="@peduarte" />
-            </div>
+            <CustomerForm />
           </CardContent>
           <CardFooter>
-            <Button>Save changes</Button>
+           <p></p>
           </CardFooter>
         </Card>
   )
@@ -65,7 +54,7 @@ const TabsComponent =() =>  {
         <TabsTrigger value="company" className=' transition-all data-[state=active]:bg-[var(--primary-color)] data-[state=active]:text-[#ffffff] data-[state=active]:shadow-md'>Company</TabsTrigger>
       </TabsList>
       <TabsContent value="customer">
-       <CustomerForm />
+       <Customer />
       </TabsContent>
       <TabsContent value="agent">
         <Card>
@@ -109,7 +98,7 @@ const TabsComponent =() =>  {
             </div>
           </CardContent>
           <CardFooter>
-            <Button>Save password</Button>
+            <p></p>
           </CardFooter>
         </Card>
       </TabsContent>
