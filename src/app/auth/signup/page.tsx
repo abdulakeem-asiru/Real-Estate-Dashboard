@@ -6,13 +6,9 @@ import apple from "@/assets/icon/apple.png"
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
-  CardHeader,
-  CardTitle,
+  
 } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import {
   Tabs,
   TabsContent,
@@ -21,6 +17,8 @@ import {
 } from "@/components/ui/tabs"
 import Image from 'next/image'
 import CustomerForm from '@/app/parts/authui/SignUpForms/CustomerForm'
+import AgentForm from '@/app/parts/authui/SignUpForms/AgentForm'
+import CompanyForm from '@/app/parts/authui/SignUpForms/CompanyForm'
 
 const Customer = () =>{
   return(
@@ -45,6 +43,33 @@ const Customer = () =>{
   )
 };
 
+
+
+const Agent = () =>{
+  return(
+     <Card className='border-none shadow-none'>
+          <CardContent className="space-y-2">
+            <AgentForm />
+          </CardContent>
+          <CardFooter>
+           <p></p>
+          </CardFooter>
+        </Card>
+  )
+};
+
+const Company = () =>{
+  return(
+     <Card className='border-none shadow-none'>
+          <CardContent className="space-y-2">
+            <CompanyForm />
+          </CardContent>
+          <CardFooter>
+           <p></p>
+          </CardFooter>
+        </Card>
+  )
+};
 const TabsComponent =() =>  {
   return (
     <Tabs defaultValue="customer" className="max-w-[500px] w-full">
@@ -57,50 +82,10 @@ const TabsComponent =() =>  {
        <Customer />
       </TabsContent>
       <TabsContent value="agent">
-        <Card>
-          <CardHeader>
-            <CardTitle>Password</CardTitle>
-            <CardDescription>
-              Change your password here. After saving, you&apos;ll be logged out.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="current">Current password</Label>
-              <Input id="current" type="password" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="new">New password</Label>
-              <Input id="new" type="password" />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button>Save password</Button>
-          </CardFooter>
-        </Card>
+     <Agent />
       </TabsContent>
       <TabsContent value="company">
-        <Card>
-          <CardHeader>
-            <CardTitle>Password</CardTitle>
-            <CardDescription>
-              Change your password here. After saving, you&apos;ll be logged out.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="current">Current password</Label>
-              <Input id="current" type="password" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="new">New password</Label>
-              <Input id="new" type="password" />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <p></p>
-          </CardFooter>
-        </Card>
+        <Company />
       </TabsContent>
     </Tabs>
   )

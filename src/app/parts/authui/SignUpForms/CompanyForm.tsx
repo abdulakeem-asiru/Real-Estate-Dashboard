@@ -16,7 +16,7 @@ import { Button } from '@/components/ui/button';
 
 
 const formSchema = z.object({
-    invitation_code : z.string(),
+    company_name : z.string(),
     email : z.string().email(),
     name : z.string(),
       password: z
@@ -26,12 +26,12 @@ const formSchema = z.object({
     .regex(/\d/, "Password must contain at least one number"),
 });
 type FormSchemaType = z.infer<typeof formSchema>;
-function AgentForm() {
+function CompanyForm() {
     const form = useForm<FormSchemaType>({
         resolver : zodResolver(formSchema),
         defaultValues : {
             name : "",
-            invitation_code : "",
+           company_name : "",
             email : "",
             password : ""
         }
@@ -51,9 +51,9 @@ console.log(values)
         formControl={form.control}
         />
         <SignUpFormField 
-        name='invitation_code'
-        label='Invitation Code'
-        placeholder='Enter company invitation code'
+        name='company_name'
+        label='Company Name'
+        placeholder='Enter company Name'
         inputType='text'
         formControl={form.control}
         />
@@ -114,4 +114,4 @@ const SignUpFormField : React.FC<SignUpFormFieldProps> = ({
  )
 }
 
-export default AgentForm
+export default CompanyForm
