@@ -1,7 +1,6 @@
 "use client"
 
 import React from 'react'
-import {z} from "zod"
 import { zodResolver } from "@hookform/resolvers/zod";
 import {FieldPath, useForm, Control } from "react-hook-form"
 import { Form,
@@ -13,22 +12,12 @@ import { Form,
       FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { createCompany } from '@/app/lib/action';
+import { companyFormSchema, companyFormSchemaType } from '@/app/lib/schema/companySchema';
 
-
-const formSchema = z.object({
-    company_name : z.string(),
-    email : z.string().email(),
-    name : z.string(),
-      password: z
-    .string()
-    .min(8, "Password must be at least 8 characters long")
-    .regex(/[A-Za-z]/, "Password must contain at least one letter")
-    .regex(/\d/, "Password must contain at least one number"),
-});
-type FormSchemaType = z.infer<typeof formSchema>;
 function CompanyForm() {
-    const form = useForm<FormSchemaType>({
-        resolver : zodResolver(formSchema),
+    const form = useForm<companyFormSchemaType>({
+        resolver : zodResolver(companyFormSchema),
         defaultValues : {
             name : "",
            company_name : "",
@@ -37,8 +26,12 @@ function CompanyForm() {
         }
     })
 
-const onSubmit = (values : FormSchemaType) =>{
-console.log(values)
+const onSubmit = async (values : companyFormSchemaType) =>{
+  const response = await createCompany(values)
+  if(!response?.errors){
+    alert("Company created successfully")
+    form.reset()
+  }
 }
   return (
     <Form {...form}>
@@ -68,7 +61,7 @@ console.log(values)
         name='password'
         label='Password'
         placeholder='Create a password'
-        inputType='pssword'
+        inputType='password'
         description='Use a secure password'
         formControl={form.control}
         />
@@ -79,12 +72,12 @@ console.log(values)
 }
 
 interface SignUpFormFieldProps{
-    name : FieldPath<FormSchemaType>,
+    name : FieldPath<companyFormSchemaType>,
     label : string,
     placeholder : string,
     description? : string,
     inputType? : string,
-    formControl : Control<FormSchemaType >
+    formControl : Control<companyFormSchemaType >
 
 }
 
@@ -104,9 +97,11 @@ const SignUpFormField : React.FC<SignUpFormFieldProps> = ({
       <FormItem>
         <FormLabel>{label}</FormLabel>
         <FormControl>
-         <Input placeholder={placeholder} type={inputType ?? "text"}  required {...field} className='h-[40px]'/>
+         <Input placeholder={placeholder} type={inputType ?? "text"}   {...field}
+         aria-describedby={description ? `${name}-description` : undefined}
+          className='h-[40px]'/>
         </FormControl>
-        {description && <FormDescription>{description}</FormDescription>}
+        {description && <FormDescription id={`${name}-description`}>{description}</FormDescription>}
         <FormMessage />
       </FormItem>
     )}
