@@ -104,7 +104,7 @@ const SignUpFormField : React.FC<SignUpFormFieldProps> = ({
       <FormItem>
         <FormLabel>{label}</FormLabel>
         <FormControl>
-         <Input placeholder={placeholder} type={inputType ?? "text"} {...field} className='h-[40px]'/>
+         <Input placeholder={placeholder} type={inputType ?? "text"} required {...field} className='h-[40px]'/>
         </FormControl>
         {description && <FormDescription>{description}</FormDescription>}
         <FormMessage />

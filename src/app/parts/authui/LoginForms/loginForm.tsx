@@ -17,7 +17,6 @@ import { Button } from '@/components/ui/button';
 
 const formSchema = z.object({
     email : z.string().email(),
-    name : z.string(),
       password: z
     .string()
     .min(8, "Password must be at least 8 characters long")
@@ -25,11 +24,10 @@ const formSchema = z.object({
     .regex(/\d/, "Password must contain at least one number"),
 });
 type FormSchemaType = z.infer<typeof formSchema>;
-function CustomerForm() {
+function LoginForm() {
     const form = useForm<FormSchemaType>({
         resolver : zodResolver(formSchema),
         defaultValues : {
-            name : "",
             email : "",
             password : ""
         }
@@ -41,21 +39,14 @@ console.log(values)
   return (
     <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
-        <SignUpFormField 
-        name='name'
-        label='Full Name'
-        placeholder='Enter your fullname'
-        inputType='text'
-        formControl={form.control}
-        />
-         <SignUpFormField 
+         <LoginFormField 
         name='email'
         label='Email'
         placeholder='adenuga@gmail.com'
         inputType='email'
         formControl={form.control}
         />
-         <SignUpFormField 
+         <LoginFormField 
         name='password'
         label='Password'
         placeholder='Create a password'
@@ -79,7 +70,7 @@ interface SignUpFormFieldProps{
 
 }
 
-const SignUpFormField : React.FC<SignUpFormFieldProps> = ({
+const LoginFormField : React.FC<SignUpFormFieldProps> = ({
     name,
     label,
     placeholder,
@@ -105,4 +96,4 @@ const SignUpFormField : React.FC<SignUpFormFieldProps> = ({
  )
 }
 
-export default CustomerForm
+export default LoginForm
