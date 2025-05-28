@@ -12,7 +12,7 @@ export default function ThemeToggle() {
     <div className='flex items-center gap-4 ml-3'>
       <div className='flex gap-2 items-center'>
       <Moon />
-      <Label htmlFor="thememode" className='text-[16px] font-normal'>{theme === 'light' ? 'Light Mode' : 'Dark mode'}</Label>
+      <Label htmlFor="thememode" className='text-[16px] font-normal'>{theme === 'light' ? 'Light' : 'Dark'}</Label>
       </div>
       <Switch id="thememode" onClick={switchTheme} className='scale-[1.2]'/>
     </div>

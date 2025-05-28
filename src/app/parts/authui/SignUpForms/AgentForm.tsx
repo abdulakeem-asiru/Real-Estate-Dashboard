@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, {useState} from 'react'
 import { zodResolver } from "@hookform/resolvers/zod";
 import {FieldPath, useForm, Control } from "react-hook-form"
 import { Form,
@@ -14,8 +14,11 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { agentFormSchema, agentFormSchemaType } from '@/app/lib/schema/agentSchema';
 import { createAgentAcct } from '@/app/lib/action';
+import toast, { Toaster } from 'react-hot-toast'
 
 function AgentForm() {
+    const [isLoading, setIsLoading] = useState(false)
+    const [buttonDisabled, setButtonDisabled] = useState(false)
     const form = useForm<agentFormSchemaType>({
         resolver : zodResolver(agentFormSchema),
         defaultValues : {
@@ -27,10 +30,14 @@ function AgentForm() {
     })
 
 const onSubmit = async (values : agentFormSchemaType) =>{
+    setIsLoading(true)
+  setButtonDisabled(true)
   const response = await createAgentAcct(values)
   if(!response?.errors){
-    alert("Company created successfully")
+    toast.success("Agent registered successfully")  
     form.reset()
+        setIsLoading(false)
+    setButtonDisabled(false)
   }
 }
   return (
@@ -65,8 +72,8 @@ const onSubmit = async (values : agentFormSchemaType) =>{
         description='Use a secure password'
         formControl={form.control}
         />
-        <Button className='w-full h-[50px] bg-[var(--primary-color)]'>Sign Up</Button>
-        </form>
+       <Button disabled={buttonDisabled} className='w-full h-[50px] bg-[var(--primary-color)]'>{isLoading ? "Please wait..." : "Sign Up" }</Button>
+               </form>
     </Form>
   )
 }
@@ -101,6 +108,7 @@ const SignUpFormField : React.FC<SignUpFormFieldProps> = ({
         </FormControl>
         {description && <FormDescription>{description}</FormDescription>}
         <FormMessage />
+        <Toaster />
       </FormItem>
     )}
   />

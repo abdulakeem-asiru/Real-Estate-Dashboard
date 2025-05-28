@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, {useState} from 'react'
 import { zodResolver } from "@hookform/resolvers/zod";
 import {FieldPath, useForm, Control } from "react-hook-form"
 import { Form,
@@ -14,8 +14,13 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { customerFormSchema, customerFormSchemaType } from '@/app/lib/schema/customerSchema';
 import { createCustomerAcct } from '@/app/lib/action';
+import toast, { Toaster } from 'react-hot-toast'
+
+
 
 function CustomerForm() {
+  const [isLoading, setIsLoading] = useState(false)
+const [buttonDisabled, setButtonDisabled] = useState(false)
     const form = useForm<customerFormSchemaType>({
         resolver : zodResolver(customerFormSchema),
         defaultValues : {
@@ -26,10 +31,15 @@ function CustomerForm() {
     })
 
 const onSubmit = async(values : customerFormSchemaType) =>{
+  setIsLoading(true)
+  setButtonDisabled(true)
 const response = await createCustomerAcct(values)
   if(!response?.errors){
-    alert("Customer created successfully")
+     toast.success("Customer registered successfully")   
     form.reset()
+    setIsLoading(false)
+    setButtonDisabled(false)
+
   }
 }
   return (
@@ -57,7 +67,7 @@ const response = await createCustomerAcct(values)
         description='Use a secure password'
         formControl={form.control}
         />
-        <Button className='w-full h-[50px] bg-[var(--primary-color)]'>Sign Up</Button>
+        <Button disabled={buttonDisabled} className='w-full h-[50px] bg-[var(--primary-color)]'> {isLoading ? "Please wait..." : "Sign Up" }</Button>
         </form>
     </Form>
   )
@@ -93,6 +103,7 @@ const SignUpFormField : React.FC<SignUpFormFieldProps> = ({
         </FormControl>
         {description && <FormDescription>{description}</FormDescription>}
         <FormMessage />
+         <Toaster />
       </FormItem>
     )}
   />

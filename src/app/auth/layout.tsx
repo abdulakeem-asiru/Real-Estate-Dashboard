@@ -1,5 +1,6 @@
 import Banner from "../parts/authui/Banner";
 import Header from "../parts/authui/Header";
+import ThemeToggle from "../parts/shared/ThemeToggle";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,8 +13,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <aside className="bg-[var(--banner-bg)] w-[50%] rounded-xl 
          min-h-full px-8 pt-12 pb-25 max-lg:hidden" aria-label="auth banner">
           <Banner />
+          
         </aside>
       </div>
+      <div className="fixed top-6 right-6 z-50 bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg hover:shadow-xl transition">
+  <ThemeToggle />
+</div>
+
     </div>
   );
 }

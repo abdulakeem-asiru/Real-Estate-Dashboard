@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from "@/components/ui/button"
 import google from "@/assets/icon/google.png"
 import apple from "@/assets/icon/apple.png"
+import Link from 'next/link'
 
 import {
   Card,
@@ -37,7 +38,7 @@ const Customer = () =>{
             <CustomerForm />
           </CardContent>
           <CardFooter>
-           <p></p>
+          <div className='mt-2'>Already have an account?<Link href="/auth/login" className='text-[var(--primary-color)]'> Login</Link></div>
           </CardFooter>
         </Card>
   )
@@ -52,7 +53,7 @@ const Agent = () =>{
             <AgentForm />
           </CardContent>
           <CardFooter>
-           <p></p>
+          <div className='mt-2'>Already have an account?<Link href="/auth/login" className='text-[var(--primary-color)]'> Login</Link></div>
           </CardFooter>
         </Card>
   )
@@ -65,7 +66,7 @@ const Company = () =>{
             <CompanyForm />
           </CardContent>
           <CardFooter>
-           <p></p>
+           <div className='mt-2'>Already have an account?<Link href="/auth/login" className='text-[var(--primary-color)]'> Login</Link></div>
           </CardFooter>
         </Card>
   )

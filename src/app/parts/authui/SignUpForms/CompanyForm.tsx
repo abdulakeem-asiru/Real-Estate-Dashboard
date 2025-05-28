@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React,  {useState} from 'react'
 import { zodResolver } from "@hookform/resolvers/zod";
 import {FieldPath, useForm, Control } from "react-hook-form"
 import { Form,
@@ -14,8 +14,11 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { createCompany } from '@/app/lib/action';
 import { companyFormSchema, companyFormSchemaType } from '@/app/lib/schema/companySchema';
+import toast, { Toaster } from 'react-hot-toast'
 
 function CompanyForm() {
+    const [isLoading, setIsLoading] = useState(false)
+  const [buttonDisabled, setButtonDisabled] = useState(false)
     const form = useForm<companyFormSchemaType>({
         resolver : zodResolver(companyFormSchema),
         defaultValues : {
@@ -27,10 +30,14 @@ function CompanyForm() {
     })
 
 const onSubmit = async (values : companyFormSchemaType) =>{
+   setIsLoading(true)
+  setButtonDisabled(true)
   const response = await createCompany(values)
   if(!response?.errors){
-    alert("Company created successfully")
+    toast.success("Company registered successfully")  
     form.reset()
+        setIsLoading(false)
+    setButtonDisabled(false)
   }
 }
   return (
@@ -65,7 +72,7 @@ const onSubmit = async (values : companyFormSchemaType) =>{
         description='Use a secure password'
         formControl={form.control}
         />
-        <Button className='w-full h-[50px] bg-[var(--primary-color)]'>Sign Up</Button>
+        <Button disabled={buttonDisabled} className='w-full h-[50px] bg-[var(--primary-color)]'>{isLoading ? "Please wait..." : "Sign Up" }</Button>
         </form>
     </Form>
   )
@@ -103,6 +110,7 @@ const SignUpFormField : React.FC<SignUpFormFieldProps> = ({
         </FormControl>
         {description && <FormDescription id={`${name}-description`}>{description}</FormDescription>}
         <FormMessage />
+       <Toaster /> 
       </FormItem>
     )}
   />
