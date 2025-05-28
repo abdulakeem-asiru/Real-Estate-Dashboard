@@ -1,6 +1,6 @@
 import Banner from "../parts/authui/Banner";
 import Header from "../parts/authui/Header";
-import ThemeToggle from "../parts/shared/ThemeToggle";
+import DarkModeBtn from "../parts/authui/DarkModeBtn";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -15,10 +15,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <Banner />
           
         </aside>
-      </div>
-      <div className="fixed top-6 right-6 z-50 bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg hover:shadow-xl transition">
-  <ThemeToggle />
+            <div className="fixed bottom-6 p-2 bg-black dark:bg-white rounded-full right-6 z-50  shadow-lg hover:shadow-xl transition">
+  <DarkModeBtn />
 </div>
+      </div>
 
     </div>
   );
