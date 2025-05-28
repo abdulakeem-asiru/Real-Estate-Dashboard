@@ -15,7 +15,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <Banner />
           
         </aside>
-            <div className="fixed bottom-6 p-2 bg-black dark:bg-white rounded-full right-6 z-50  shadow-lg hover:shadow-xl transition">
+            <div className="fixed bottom-2 lg:bottom-6 p-2 bg-black dark:bg-white rounded-full right-0 lg:right-6 z-50  shadow-lg hover:shadow-xl transition">
   <DarkModeBtn />
 </div>
       </div>

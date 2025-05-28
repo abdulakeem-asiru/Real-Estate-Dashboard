@@ -54,7 +54,7 @@ console.log(values)
         description='Use a secure password'
         formControl={form.control}
         />
-        <Button className='w-full h-[50px] bg-[var(--primary-color)]'>Sign Up</Button>
+        <Button className='w-full h-[50px] bg-[var(--primary-color)]'>Login</Button>
         </form>
     </Form>
   )
