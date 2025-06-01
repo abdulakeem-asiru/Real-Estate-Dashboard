@@ -1,3 +1,5 @@
+"use client"
+
 import { ReactNode } from "react";
 import {
   DropdownMenu,
@@ -13,11 +15,35 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { logout } from "@/app/lib/action";
+import  toast, {Toaster } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 interface DropdownMenuComponentProps {
   chevron?: ReactNode; 
 }
+
+
+
 export function DropdownMenuComponent({chevron} : DropdownMenuComponentProps) {
+  const router = useRouter()
+  const onLogOut = async () =>{
+  try{
+  const response = await logout()
+   if (response?.error) {
+      toast.error(response.error.toString())
+      return
+    }
+
+    toast.success("Logout successfully")
+    router.refresh() 
+    router.push('/auth/login')
+  } catch (err) {
+    console.log(err)
+    toast.error("An unexpected error occurred")
+  }
+}
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -68,11 +94,12 @@ export function DropdownMenuComponent({chevron} : DropdownMenuComponentProps) {
         <DropdownMenuItem>Support</DropdownMenuItem>
         <DropdownMenuItem disabled>API</DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={onLogOut}>
           Log out
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>
+      <Toaster />
     </DropdownMenu>
   )
 }

@@ -6,12 +6,13 @@ import { Metadata } from 'next'
 import SalesChart from '../parts/dashboard/chart/SalesChart'
 import { PieChartWrapper } from '../parts/dashboard/chart/PieChart'
 
-
 export const metadata: Metadata = {
   title: 'Safe Home -Dashboard',
   description: '...',
 }
-const page = () => {
+
+const page = async () => {
+
   return (
     <div className='m-auto w-full mb-30'>
      <div className='md:flex items-center justify-between hidden'>

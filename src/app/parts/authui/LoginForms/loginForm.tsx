@@ -1,7 +1,5 @@
 "use client"
-
-import React from 'react'
-import {z} from "zod"
+import React, {useState} from 'react'
 import { zodResolver } from "@hookform/resolvers/zod";
 import {FieldPath, useForm, Control } from "react-hook-form"
 import { Form,
@@ -13,28 +11,47 @@ import { Form,
       FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { loginFormSchema, LoginFormSchemaType } from '@/app/lib/schema/loginSchema';
+import toast, { Toaster } from 'react-hot-toast'
+import { login } from '@/app/lib/action';
+import { useRouter } from 'next/navigation';
 
 
-const formSchema = z.object({
-    email : z.string().email(),
-      password: z
-    .string()
-    .min(8, "Password must be at least 8 characters long")
-    .regex(/[A-Za-z]/, "Password must contain at least one letter")
-    .regex(/\d/, "Password must contain at least one number"),
-});
-type FormSchemaType = z.infer<typeof formSchema>;
 function LoginForm() {
-    const form = useForm<FormSchemaType>({
-        resolver : zodResolver(formSchema),
+   const [isLoading, setIsLoading] = useState(false)
+  const [buttonDisabled, setButtonDisabled] = useState(false)
+    const form = useForm<LoginFormSchemaType>({
+        resolver : zodResolver(loginFormSchema),
         defaultValues : {
             email : "",
             password : ""
         }
     })
+const router = useRouter();
+const onSubmit = async (values : LoginFormSchemaType) =>{
 
-const onSubmit = (values : FormSchemaType) =>{
-console.log(values)
+setIsLoading(true)
+  setButtonDisabled(true)
+
+  try {
+    const response = await login(values)
+
+    if (response?.error) {
+      toast.error(response.error.toString())
+      return
+    }
+
+    toast.success("Authenticated successfully")
+    router.refresh() // revalidate layout if needed
+    router.push('/dashboard')
+  } catch (err) {
+    console.log(err)
+    toast.error("An unexpected error occurred")
+  } finally {
+    setIsLoading(false)
+    setButtonDisabled(false)
+  }
+
 }
   return (
     <Form {...form}>
@@ -54,19 +71,19 @@ console.log(values)
         description='Use a secure password'
         formControl={form.control}
         />
-        <Button className='w-full h-[50px] bg-[var(--primary-color)]'>Login</Button>
+        <Button disabled={buttonDisabled} className='w-full h-[50px] bg-[var(--primary-color)]'> {isLoading ? "Please wait..." : "Login" }</Button>
         </form>
     </Form>
   )
 }
 
 interface SignUpFormFieldProps{
-    name : FieldPath<FormSchemaType>,
+    name : FieldPath<LoginFormSchemaType>,
     label : string,
     placeholder : string,
     description? : string,
     inputType? : string,
-    formControl : Control<FormSchemaType >
+    formControl : Control<LoginFormSchemaType >
 
 }
 
@@ -90,6 +107,7 @@ const LoginFormField : React.FC<SignUpFormFieldProps> = ({
         </FormControl>
         {description && <FormDescription>{description}</FormDescription>}
         <FormMessage />
+        <Toaster />
       </FormItem>
     )}
   />
