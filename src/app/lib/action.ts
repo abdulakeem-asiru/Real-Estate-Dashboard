@@ -5,7 +5,6 @@ import { customerFormSchema, customerFormSchemaType } from "./schema/customerSch
 import { revalidatePath } from 'next/cache'
 import { createClient } from "@/utils/supabase/server";
 import { loginFormSchema, LoginFormSchemaType } from "./schema/loginSchema";
-import { redirect } from "next/navigation";
 
 export async function createCompany(data: companyFormSchemaType) {
       const validatedFields = companyFormSchema.safeParse(data)
@@ -87,7 +86,6 @@ export async function login(values: LoginFormSchemaType) {
       throw error
     }
     revalidatePath('/', 'layout')
-    redirect('/dashboard')
   } catch (err) {
     console.log(err)
     return {
