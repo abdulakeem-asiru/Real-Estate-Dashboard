@@ -20,12 +20,12 @@ import  toast, {Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 interface DropdownMenuComponentProps {
-  chevron?: ReactNode; 
+  trigger?: ReactNode; 
 }
 
 
 
-export function DropdownMenuComponent({chevron} : DropdownMenuComponentProps) {
+export function DropdownMenuComponent({trigger} : DropdownMenuComponentProps) {
   const router = useRouter()
   const onLogOut = async () =>{
   try{
@@ -47,7 +47,7 @@ export function DropdownMenuComponent({chevron} : DropdownMenuComponentProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        {chevron}
+        {trigger}
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>

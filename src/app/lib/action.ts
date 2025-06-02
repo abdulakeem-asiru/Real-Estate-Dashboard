@@ -83,9 +83,7 @@ export async function login(values: LoginFormSchemaType) {
         return {
           error : error.message || "Invalid Credentials",
         }
-      throw error
     }
-    revalidatePath('/', 'layout')
   } catch (err) {
     console.log(err)
     return {
@@ -103,7 +101,6 @@ export async function logout(){
         return {
           error : error.message || "Unable to Logout",
         }
-      throw error
     }
     revalidatePath('/', 'layout')
 
