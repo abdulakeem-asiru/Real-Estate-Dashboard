@@ -2,16 +2,18 @@ import { Button } from '@/components/ui/button'
 import React from 'react'
 import { Plus } from 'lucide-react'
 import CardWrapper from '../parts/dashboard/Card'
-import { Metadata } from 'next'
 import SalesChart from '../parts/dashboard/chart/SalesChart'
 import { PieChartWrapper } from '../parts/dashboard/chart/PieChart'
+import { createClient } from '@/utils/supabase/server'
+import { redirect } from 'next/navigation'
 
-export const metadata: Metadata = {
-  title: 'Safe Home -Dashboard',
-  description: '...',
-}
 
-const page = async () => {
+export default async function  DashboardPage(){
+const supabase = await createClient()
+  const { data, error } = await supabase.auth.getUser()
+  if (error || !data?.user) {
+    redirect('auth/login')
+  }
 
   return (
     <div className='m-auto w-full mb-30'>
@@ -38,5 +40,3 @@ const page = async () => {
     </div>
   )
 }
-
-export default page

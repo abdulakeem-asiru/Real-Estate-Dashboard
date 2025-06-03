@@ -40,9 +40,7 @@ setIsLoading(true)
       toast.error(response.error.toString())
       return
     }
-
     toast.success("Authenticated successfully")
-    router.refresh() // revalidate layout if needed
     router.push('/dashboard')
   } catch (err) {
     console.log(err)

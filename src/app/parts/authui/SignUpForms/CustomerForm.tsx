@@ -15,6 +15,7 @@ import { Button } from '@/components/ui/button';
 import { customerFormSchema, customerFormSchemaType } from '@/app/lib/schema/customerSchema';
 import { createCustomerAcct } from '@/app/lib/action';
 import toast, { Toaster } from 'react-hot-toast'
+import { useRouter } from 'next/navigation';
 
 
 
@@ -29,19 +30,32 @@ const [buttonDisabled, setButtonDisabled] = useState(false)
             password : ""
         }
     })
-
+const router = useRouter();
 const onSubmit = async(values : customerFormSchemaType) =>{
   setIsLoading(true)
   setButtonDisabled(true)
-const response = await createCustomerAcct(values)
-  if(!response?.errors){
-     toast.success("Customer registered successfully")   
+  try{
+    const response = await createCustomerAcct(values)
+    if (response?.error) {
+      toast.error(response.error.toString())
+      return
+    } 
+    toast.success("Registered successfully, Please verify email")
     form.reset()
+    router.push('/dashboard')
     setIsLoading(false)
     setButtonDisabled(false)
-
   }
+  catch(err){
+ console.log(err)
+    toast.error("An unexpected error occurred")
+  } finally {
+    setIsLoading(false)
+    setButtonDisabled(false)
+  }
+
 }
+
   return (
     <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>

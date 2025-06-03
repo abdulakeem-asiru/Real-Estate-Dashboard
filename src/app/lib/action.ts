@@ -5,6 +5,7 @@ import { customerFormSchema, customerFormSchemaType } from "./schema/customerSch
 import { revalidatePath } from 'next/cache'
 import { createClient } from "@/utils/supabase/server";
 import { loginFormSchema, LoginFormSchemaType } from "./schema/loginSchema";
+import { redirect } from "next/navigation";
 
 export async function createCompany(data: companyFormSchemaType) {
       const validatedFields = companyFormSchema.safeParse(data)
@@ -46,18 +47,27 @@ export async function createCustomerAcct(values: customerFormSchemaType) {
       };
     }
 // Prepare data for insertion into the database
-const {name, email, password } = validatedFields.data;
+const {email, password } = validatedFields.data;
+
 try{
 const { data, error } = await supabase.auth.signUp({
     email: email,
     password: password,
   });
-  if (error) throw error;
-  console.log('Auth Data:', data); // Log auth response
-    if (!data?.user?.id) throw new Error('User ID not found in auth response');
+  console.log(data)
+   if (error) {
+        return {
+          error : error.message || "Unable to signUp",
+        }
+   }
+   if (data.user?.identities?.length === 0){
+    return {
+          error : "User already exist",
+        }
+   }else{
+    redirect('/auth/emailconfirmation')
+   }
 
-  await supabase.from('customers').insert({ id: data.user.id, name: name });
-  return { success: true, redirect: '/dashboard' };
   } catch (err) {
     console.error('Signup Error');
     throw err;
@@ -112,3 +122,7 @@ export async function logout(){
     
   }
 }
+
+
+      // await supabase.from('customers').insert({ id: data.user.id, name: name });
+      // return { success: true };

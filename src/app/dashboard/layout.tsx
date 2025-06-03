@@ -1,5 +1,11 @@
 import SideNav from "../parts/shared/sidenav";
 import HeaderComponent from "../parts/shared/header";
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Safe Home -Dashboard',
+  description: '...',
+}
 
  export default function Layout({ children }: { children: React.ReactNode }) {
   return (
