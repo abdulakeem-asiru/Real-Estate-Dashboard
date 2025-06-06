@@ -1,6 +1,7 @@
-import Banner from "../parts/authui/Banner";
-import Header from "../parts/authui/Header";
-import DarkModeBtn from "../parts/authui/DarkModeBtn";
+import Banner from "../features/auth/ui/Banner";
+import Header from "../features/auth/ui/Header";
+import DarkModeBtn from "../features/auth/ui/DarkModeBtn";
+
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

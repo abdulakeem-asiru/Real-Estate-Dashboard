@@ -4,6 +4,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: 'Safe Home',
   description: '...',
+  icons: {
+    icon: '/logo.png', //favicon
+  },
 }
 
 export default function Home() {

@@ -2,15 +2,16 @@ import React from 'react'
 import { Button } from "@/components/ui/button"
 import google from "@/assets/icon/google.png"
 import apple from "@/assets/icon/apple.png"
-
+import Image from 'next/image'
+import LoginForm from '@/app/features/auth/ui/LoginForms/loginForm'
+import Link from 'next/link'
 import {
   Card,
   CardContent,
   CardFooter,
   
 } from "@/components/ui/card"
-import Image from 'next/image'
-import LoginForm from '@/app/parts/authui/LoginForms/loginForm'
+
 
 const LoginFormField = () =>{
   return(
@@ -29,7 +30,9 @@ const LoginFormField = () =>{
             <LoginForm />
           </CardContent>
           <CardFooter>
-           <p></p>
+          <CardFooter>
+           <div className='mt-2'>Don&apos;t have an account?<Link href="/auth/signup" className='text-[var(--primary-color)]'> Sign Up</Link></div>
+          </CardFooter>
           </CardFooter>
         </Card>
   )

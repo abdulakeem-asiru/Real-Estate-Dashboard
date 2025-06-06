@@ -17,9 +17,11 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 import Image from 'next/image'
-import CustomerForm from '@/app/parts/authui/SignUpForms/CustomerForm'
-import AgentForm from '@/app/parts/authui/SignUpForms/AgentForm'
-import CompanyForm from '@/app/parts/authui/SignUpForms/CompanyForm'
+import CustomerForm from '@/app/features/auth/ui/SignUpForms/CustomerForm'
+// import AgentForm from '@/app/parts/authui/SignUpForms/AgentForm'
+import CompanyForm from '@/app/features/auth/ui/SignUpForms/CompanyForm'
+
+
 
 const Customer = () =>{
   return(
@@ -46,18 +48,18 @@ const Customer = () =>{
 
 
 
-const Agent = () =>{
-  return(
-     <Card className='border-none shadow-none'>
-          <CardContent className="space-y-2">
-            <AgentForm />
-          </CardContent>
-          <CardFooter>
-          <div className='mt-2'>Already have an account?<Link href="/auth/login" className='text-[var(--primary-color)]'> Login</Link></div>
-          </CardFooter>
-        </Card>
-  )
-};
+// const Agent = () =>{
+//   return(
+//      <Card className='border-none shadow-none'>
+//           <CardContent className="space-y-2">
+//             <AgentForm />
+//           </CardContent>
+//           <CardFooter>
+//           <div className='mt-2'>Already have an account?<Link href="/auth/login" className='text-[var(--primary-color)]'> Login</Link></div>
+//           </CardFooter>
+//         </Card>
+//   )
+// };
 
 const Company = () =>{
   return(
@@ -74,17 +76,17 @@ const Company = () =>{
 const TabsComponent =() =>  {
   return (
     <Tabs defaultValue="customer" className="max-w-[500px] w-full">
-      <TabsList className="grid w-full grid-cols-3 h-[50px]">
+      <TabsList className="grid w-full grid-cols-2 h-[50px]">
         <TabsTrigger value="customer" className='transition-all data-[state=active]:bg-[var(--primary-color)] data-[state=active]:text-[#ffffff] data-[state=active]:shadow-md'>Customer</TabsTrigger>
-        <TabsTrigger value="agent" className='transition-all data-[state=active]:bg-[var(--primary-color)] data-[state=active]:text-[#ffffff] data-[state=active]:shadow-md'>Agent</TabsTrigger>
+        {/* <TabsTrigger value="agent" className='transition-all data-[state=active]:bg-[var(--primary-color)] data-[state=active]:text-[#ffffff] data-[state=active]:shadow-md'>Agent</TabsTrigger> */}
         <TabsTrigger value="company" className=' transition-all data-[state=active]:bg-[var(--primary-color)] data-[state=active]:text-[#ffffff] data-[state=active]:shadow-md'>Company</TabsTrigger>
       </TabsList>
       <TabsContent value="customer">
        <Customer />
       </TabsContent>
-      <TabsContent value="agent">
+      {/* <TabsContent value="agent">
      <Agent />
-      </TabsContent>
+      </TabsContent> */}
       <TabsContent value="company">
         <Company />
       </TabsContent>
