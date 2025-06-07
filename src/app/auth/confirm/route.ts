@@ -30,6 +30,19 @@ export async function GET(request: NextRequest) {
           await supabase
             .from("customers")
             .insert({ id, email, name: full_name });
+
+           // Step 2: Insert into profile table
+          const { error: profileError} = await supabase.from("profiles").insert({
+            id,
+            email,
+            role,
+            name: full_name
+          });
+          
+          if (profileError ) {
+            console.error("Failed to insert profile:", profileError);
+            return redirect("/error");
+          }
         }
         if (role === "company") {
           const { data: companyData, error: companyError } = await supabase
@@ -51,9 +64,22 @@ export async function GET(request: NextRequest) {
             name: full_name,
             company_id: companyData.id, // now using actual ID from DB
           });
+
+             if (companyMemberError ) {
+            console.error("Failed to insert company member table:", companyMemberError);
+            return redirect("/error");
+          }
+
+          // Step 3: Insert into profile table
+          const { error: profileError} = await supabase.from("profiles").insert({
+            id,
+            email,
+            role,
+            name: full_name
+          });
           
-          if (companyMemberError ) {
-            console.error("Failed to insert company:", companyMemberError);
+          if (profileError ) {
+            console.error("Failed to insert profile:", profileError);
             return redirect("/error");
           }
         }

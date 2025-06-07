@@ -4,6 +4,7 @@ import { agentFormSchema, agentFormSchemaType } from "@/schemas/agentSchema";
 
 export async function createAgentAcct(data: agentFormSchemaType) {
       const validatedFields = agentFormSchema.safeParse(data)
+    
 
  if (!validatedFields.success) {
       return {
@@ -16,3 +17,4 @@ const { invitation_code, name, email, password } = validatedFields.data;
 console.log( invitation_code, name, email, password)
 }
 
+ 
