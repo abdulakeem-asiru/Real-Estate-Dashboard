@@ -36,7 +36,7 @@ const supabase = await createClient()
         <PieChartWrapper />
       </div>
      </div> 
-    <div className='w-full h-60 bg-amber-400 mt-4 rounded-lg'></div>
+    <div className='w-full h-60 bg-amber-400 mt-4 rounded-lg overflow-x-scroll'></div>
     </div>
   )
 }

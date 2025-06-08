@@ -65,7 +65,7 @@ setIsLoading(true)
         name='password'
         label='Password'
         placeholder='Create a password'
-        inputType='pssword'
+        inputType='password'
         description='Use a secure password'
         formControl={form.control}
         />

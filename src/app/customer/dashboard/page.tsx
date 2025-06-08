@@ -23,7 +23,6 @@ const supabase = await createClient()
 
      if (customerError) {
     console.error("Customer fetch failed:", customerError.message);
-    redirect('/auth/login'); // or to an onboarding page
   }
 
   return (

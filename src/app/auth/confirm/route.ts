@@ -48,15 +48,15 @@ export async function GET(request: NextRequest) {
           const { data: companyData, error: companyError } = await supabase
             .from("companies")
             .insert({ company_name })
-            .select() // Required to get inserted row
-            .single(); // Ensure we get a single object, not an array
+            .select() 
+            .single(); 
 
           if (companyError || !companyData) {
             console.error("Failed to insert company:", companyError);
             return redirect("/error");
           }
 
-          // Step 2: Insert into company_members with company_id
+          //Insert into company_members with company_id
           const { error: companyMemberError} = await supabase.from("company_members").insert({
             id,
             email,

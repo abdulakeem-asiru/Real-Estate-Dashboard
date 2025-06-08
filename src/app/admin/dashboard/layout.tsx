@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       </div>
       <div  className="w-full max-md:flex-wrap">
     <header className="h-[90px] px-6 w-full border-b-2 border-[var(--border-color)] hidden md:flex items-center"><HeaderComponent /></header>
-      <div className="p-6 overflow-y-scroll md:p-8 h-full md:max-h-[calc(100vh-50px)]">{children}</div>
+      <div className="overflow-y-scroll  h-full md:max-h-[calc(100vh-50px)]" >{children}</div>
       </div>
     </div>
   );

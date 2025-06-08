@@ -35,12 +35,20 @@ input[type="number"]::-webkit-outer-spin-button {
 :root {
   --banner-bg : #feede2;
   --primary-color: #E46323;
+  --background : #ffffff;
+  --bg-secondary : #E0E0E0;
   --border-color: #e0e0e0;
   --icon-background : #FAFAFA;
   --icon-color: #727272;
   --text-secondary: #727272;
   --text-primary: #2e2e2e; 
   --radius: 0.625rem;
+  --bg-surfaceLv2 : #FAFAFA;
+  --warning : #FFF0E9;
+  --text-warning : #F33F54;
+  --success : #E7F6EE;
+  --text-success : #11964F;
+
   
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -114,6 +122,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .dark {
+  --bg-surfaceLv2 : oklch(0.205 0 0);
   --banner-bg : #616161;
   --primary-color: #E46323;
   --border-color: #616161;
@@ -121,6 +130,7 @@ input[type="number"]::-webkit-outer-spin-button {
   --icon-color: #FAFAFA;
   --text-secondary: #E0E0E0;
   --text-primary: #ffffff; 
+  --bg-secondary : oklch(29.21% 0 0);
   --background: oklch(29.21% 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(29.21% 0 0);

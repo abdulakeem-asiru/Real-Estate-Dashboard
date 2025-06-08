@@ -12,7 +12,7 @@ export async function createCompany(data: companyFormSchemaType) {
         message: 'Missing Fields. Failed to Create Company.',
       };
     }
-// Prepare data for insertion into the database
+
 const { company_name, name, email, password } = validatedFields.data;
 
 try{

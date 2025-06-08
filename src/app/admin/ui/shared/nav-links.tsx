@@ -46,7 +46,7 @@ export default function NavLinkComponent(){
         <Link key={link.name}
             href={adminUrl+link.href}
             className={clsx( "flex h-[40px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] pl-3 items-center gap-2 text-[16px]",
-             {"text-[var(--text-primary)] border-[var(--border-color)] border-2 rounded-xl font-medium": pathname === adminUrl+link.href,},
+             {"text-[var(--text-primary)] border-[var(--border-color)] border-2 rounded-xl font-medium": pathname === link.href,},
         )}
             >
              <LinkIcon className="w-6" />
