@@ -22,9 +22,9 @@ export default async function Profile() {
   }
 
   return (
-    <div className='flex items-center gap-4'>
-      <div className='rounded-full w-15 h-15 overflow-hidden'>
-        <DropdownMenuComponent trigger={ <Image src="/avatar.png" alt='profilepic' width={60} height={60} 
+    <div className='flex items-center gap-2'>
+      <div className='rounded-full w-15 h-15 overflow-hidden items-center flex'>
+        <DropdownMenuComponent trigger={ <Image src="/avatar.png" alt='profilepic' width={50} height={50} 
          className='object-cover'/>}/>
       </div>
       <div className=' max-lg:hidden'>

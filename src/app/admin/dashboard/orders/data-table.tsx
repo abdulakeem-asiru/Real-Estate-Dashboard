@@ -29,6 +29,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { Input } from "@/components/ui/input"
 
 
 interface DataTableProps<TData, TValue> {
@@ -72,16 +73,17 @@ const data = tableData
   })
   return (
       <div className="w-full p-4 border-2 border-[var(--border-color)] rounded-lg bg-[var(--background)]">
-          {/* <Input
+        <div className="flex items-center justify-between py-4 max-sm:flex-col max-sm:items-start gap-2">
+          <h2 className="text-[var(--text-primary)] font-semibold text-[18px]">{heading}</h2>
+          <span className="flex gap-2 items-center">
+          <Input
           placeholder="Filter emails..."
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("email")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
-        /> */}
-        <div className="flex items-center py-4">
-          <h2 className="text-[var(--text-primary)] font-semibold text-[18px]">{heading}</h2>
+        />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
@@ -110,6 +112,7 @@ const data = tableData
               })}
           </DropdownMenuContent>
         </DropdownMenu>
+         </span>
       </div>
     <div className="rounded-lg border-2 border-[var(--border-color] p-1">
       <Table>

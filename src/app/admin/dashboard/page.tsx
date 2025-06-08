@@ -165,7 +165,7 @@ const supabase = await createClient()
       </div>
      </div> 
     <div className='w-full h-60 mt-4 rounded-lg'>
-    <DataTable columns={columns} tableData={tableData} heading= "All Order List" filter=""/>
+    <DataTable columns={columns} tableData={tableData} heading= "Recent Orders" filter=""/>
     </div>
     </div>
   )
