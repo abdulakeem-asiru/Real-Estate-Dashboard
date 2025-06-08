@@ -56,10 +56,10 @@ export const columns: ColumnDef<Orders>[] = [
     accessorKey: "purchaseDate",
     header: "Purchase Date",
   },
-    {
-    accessorKey: "contact",
-    header: "Contact",
-  },
+  //   {
+  //   accessorKey: "contact",
+  //   header: "Contact",
+  // },
   {
     accessorKey: "propertiesType",
     header: "Properties Type",
