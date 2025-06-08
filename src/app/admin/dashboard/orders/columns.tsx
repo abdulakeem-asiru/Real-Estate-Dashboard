@@ -3,6 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table"
 import { MoreVertical, ArrowUpDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,7 +16,10 @@ import { Checkbox } from "@/components/ui/checkbox"
 
 export type Orders = {
   id: string
-  customerName: string
+  customer: {
+    name: string;
+    imageUrl: string;
+  };
   purchaseDate: string
   contact: string
   propertiesType: string
@@ -24,6 +28,17 @@ export type Orders = {
   status: "paid" | "unpaid"
   email: string
 }
+interface CustomerCellProp{
+  name : string,
+  imageUrl : string
+}
+
+const CustomerCell = ({ name, imageUrl } : CustomerCellProp) => (
+  <div className="flex items-center space-x-2">
+    <Image src={imageUrl} alt={name} width={40} height={40} className="rounded-full" />
+    <span>{name}</span>
+  </div>
+);
 
 export const columns: ColumnDef<Orders>[] = [
     {
@@ -49,8 +64,15 @@ export const columns: ColumnDef<Orders>[] = [
     enableHiding: false,
   },
     {
-    accessorKey: "customerName",
+    accessorKey: "customer.name",
     header: "Customer Name",
+    cell: ({ row }) => (
+      <CustomerCell
+        name={row.original.customer.name}
+        imageUrl={row.original.customer.imageUrl ?? "/logo.png"} // Fallback image if none
+      />
+    ),
+    enableGlobalFilter : true
   },
   {
     accessorKey: "purchaseDate",
@@ -63,14 +85,17 @@ export const columns: ColumnDef<Orders>[] = [
   {
     accessorKey: "propertiesType",
     header: "Properties Type",
+    enableGlobalFilter : true
   },
    {
     accessorKey: "purchaseProperties",
     header: "Purchase Properties",
+    enableGlobalFilter : true
   },
   {
     accessorKey: "email",
     header: "Email",
+    enableGlobalFilter : true
   },
   {
     accessorKey: "amount",
@@ -90,6 +115,7 @@ export const columns: ColumnDef<Orders>[] = [
       }).format(amount) 
       return <div>{formatted}</div>
     },
+    enableGlobalFilter : true
   },
 
   {
@@ -103,6 +129,7 @@ export const columns: ColumnDef<Orders>[] = [
  
       return <div className={statusStyle}>{status}</div>
     },
+    enableGlobalFilter : true
   },
    {
     id: "actions",

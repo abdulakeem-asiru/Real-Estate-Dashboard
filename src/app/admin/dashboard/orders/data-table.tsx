@@ -1,7 +1,6 @@
 "use client"
 
-import * as React from "react"
-// import { Input } from "@/components/ui/input"   
+import * as React from "react" 
 import {
   ColumnDef,
   flexRender,
@@ -35,13 +34,15 @@ import {
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   tableData: TData[]
-  heading : string
+  heading : string,
+  filter: string
 }
 
 export function DataTable<TData, TValue>({
   heading,
   columns,
   tableData,
+  filter
 }: DataTableProps<TData, TValue>) {
 const [sorting, setSorting] = React.useState<SortingState>([])
 const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -65,10 +66,10 @@ const data = tableData
       sorting,
       columnFilters,
       columnVisibility,
-      rowSelection
+      rowSelection,
+      globalFilter :filter
     },
   })
-  
   return (
       <div className="w-full p-4 border-2 border-[var(--border-color)] rounded-lg bg-[var(--background)]">
           {/* <Input
