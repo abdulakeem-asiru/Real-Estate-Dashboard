@@ -38,7 +38,7 @@ function Page() {
      <div>
       <CardWrapper />
      </div>
-     <div className="w-full mx-auto py-4 px-2 ">
+     <div className="w-full mx-auto py-4 ">
            <DataTable columns={columns} tableData={data} heading="Properties List" filter = ""/>
            </div>
     </div>
