@@ -108,7 +108,7 @@ export function PieChartWrapper() {
          
             </div>
          <div className=" flex flex-col gap-1">
-            <p className="text-[var(--text-primary)] text-[18px] font-medium">$12,167</p>
+            <p className="text-[var(--text-primary)] text-[14px] font-medium">$12,167</p>
             <p className="text-[var(--text-secondary)] font-300 text-[14px]"> From January</p>
             </div>
         </div>
@@ -118,7 +118,7 @@ export function PieChartWrapper() {
          <Wallet className="h-6 w-6 text-[var(--icon-color)]" />    
             </div>
          <div className=" flex flex-col gap-1">
-            <p className="text-[var(--text-primary)] text-[18px] font-medium">$12,167</p>
+            <p className="text-[var(--text-primary)] text-[14px] font-medium">$12,167</p>
             <p className="text-[var(--text-secondary)] font-300 text-[14px]"> From January</p>
             </div>
         </div>
