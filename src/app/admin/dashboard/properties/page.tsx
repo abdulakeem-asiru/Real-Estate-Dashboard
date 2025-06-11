@@ -5,16 +5,16 @@ import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import CardWrapper from './ui/PropertyCard'
 import { DataTable } from './propertyTable/data-table'
-import { columns, Orders } from './propertyTable/columns'
-import { CustomersOrder } from '../../data/order'
+import { columns, Property } from './propertyTable/columns'
+import { PropertyData } from '../../data/properties'
 
-async function getData(): Promise<Orders[]> {
+async function getData(): Promise<Property[]> {
   // Fetch data from your API here.
- return CustomersOrder
+ return PropertyData
 }
 
 function Page() {
-  const [data, setData] = useState<Orders[]>([]); // State to hold data
+  const [data, setData] = useState<Property[]>([]); // State to hold data
   
     useEffect(() => {
       async function fetchData() {
@@ -23,7 +23,7 @@ function Page() {
       }
       fetchData();
     }, []);
-  
+
   const pathName = usePathname()
   const pageTitle = pathName.split("dashboard")[1].split('/')[1]
   return (

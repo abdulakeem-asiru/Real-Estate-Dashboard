@@ -4,6 +4,7 @@ import { ColumnDef } from "@tanstack/react-table"
 import { MoreVertical, ArrowUpDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { Bed } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,33 +15,37 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Checkbox } from "@/components/ui/checkbox"
 
-export type Orders = {
+export type Property = {
   id: string
-  customer: {
+  property: {
     name: string;
     imageUrl: string;
   };
-  purchaseDate: string
-  contact: string
+  location : string;
+  size: number
+  bedroom : number
   propertiesType: string
-  purchaseProperties: string
-  amount: number
-  status: "paid" | "unpaid"
-  email: string
+  price: number
+  PropertyFor: "Rent" | "Sale"
 }
 interface CustomerCellProp{
   name : string,
   imageUrl : string
 }
 
-const CustomerCell = ({ name, imageUrl } : CustomerCellProp) => (
+
+const PropertyCell = ({ name, imageUrl } : CustomerCellProp) => (
   <div className="flex items-center space-x-2 min-w-[200px]">
-    <Image src={imageUrl} alt={name} width={40} height={40} className="rounded-full" />
+    <Image src={imageUrl} alt={name} width={50} height={50} className="rounded-3xl object-fill" />
     <span>{name}</span>
   </div>
 );
 
-export const columns: ColumnDef<Orders>[] = [
+const Bedroom = ( bedroom : number) => (
+  <div className="flex items-center space-x-2 min-w-[50px]"><Bed className="text-[var(--text-secondary)]"/><span>{bedroom}</span>
+  </div>
+);
+export const columns: ColumnDef<Property>[] = [
     {
     id: "select",
     header: ({ table }) => (
@@ -64,41 +69,56 @@ export const columns: ColumnDef<Orders>[] = [
     enableHiding: false,
   },
     {
-    accessorKey: "customer.name",
-    header: "Customer Name",
+    accessorKey: "property.name",
+    header: "Property Name",
     cell: ({ row }) => (
-      <CustomerCell
-        name={row.original.customer.name}
-        imageUrl={row.original.customer.imageUrl ?? "/logo.png"} // Fallback image if none
+      <PropertyCell
+        name={row.original.property.name}
+        imageUrl={row.original.property.imageUrl ?? "/logo.png"} // Fallback image if none
       />
     ),
     enableGlobalFilter : true
   },
   {
-    accessorKey: "purchaseDate",
-    header: "Purchase Date",
-  },
-  //   {
-  //   accessorKey: "contact",
-  //   header: "Contact",
-  // },
-  {
     accessorKey: "propertiesType",
     header: "Properties Type",
     enableGlobalFilter : true
   },
+  {
+    accessorKey: "size",
+    header: "Size",
+    cell :({row}) =>{
+      const size : number = row.getValue("size");
+return <span>{size} ft</span>
+    },
+    enableGlobalFilter : true
+  },
+    {
+    accessorKey: "PropertyFor",
+      header: () => <div className="text-center">Rent/Sale</div>,
+    cell: ({ row }) => {
+      const PropertyFor: string = row.getValue("PropertyFor");
+      const statusStyle = PropertyFor === "Rent" ? 
+      "text-[var(--text-success)] bg-[var(--success)] text-center p-1 rounded-md capitalize border-1 border-[var(--text-success)]" : 
+      "text-[var(--text-warning)] bg-[var(--warning)] capitalize text-center p-1 rounded-md border-1 border-[var(--text-warning)]"
+ 
+      return <div className={statusStyle}>{PropertyFor}</div>
+    },
+    enableGlobalFilter : true 
+  },
    {
-    accessorKey: "purchaseProperties",
-    header: "Purchase Properties",
+    accessorKey: "bedroom",
+    header: "Bedroom",
+    cell: ({ row }) => Bedroom(row.getValue("bedroom")),
+    enableGlobalFilter : true
+  },
+   {
+    accessorKey: "location",
+    header: "Location",
     enableGlobalFilter : true
   },
   {
-    accessorKey: "email",
-    header: "Email",
-    enableGlobalFilter : true
-  },
-  {
-    accessorKey: "amount",
+    accessorKey: "price",
    header: ({column}) => <div><Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
@@ -108,29 +128,17 @@ export const columns: ColumnDef<Orders>[] = [
         </Button></div>,
 
       cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("amount"))
+      const price = parseFloat(row.getValue("price"))
       const formatted = new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "NGN",
-      }).format(amount) 
+      }).format(price) 
       return <div>{formatted}</div>
     },
     enableGlobalFilter : true
   },
 
-  {
-    accessorKey: "status",
-      header: () => <div className="text-center">Status</div>,
-    cell: ({ row }) => {
-      const status: string = row.getValue("status");
-      const statusStyle = status === "paid" ? 
-      "text-[var(--text-success)] bg-[var(--success)] text-center p-1 rounded-md capitalize border-1 border-[var(--text-success)]" : 
-      "text-[var(--text-warning)] bg-[var(--warning)] capitalize text-center p-1 rounded-md border-1 border-[var(--text-warning)]"
- 
-      return <div className={statusStyle}>{status}</div>
-    },
-    enableGlobalFilter : true
-  },
+
    {
     id: "actions",
     cell: ({ row }) => {
@@ -152,7 +160,7 @@ export const columns: ColumnDef<Orders>[] = [
               Copy order ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
+            <DropdownMenuItem>View property</DropdownMenuItem>
             <DropdownMenuItem>View order details</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

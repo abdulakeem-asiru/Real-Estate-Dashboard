@@ -12,12 +12,12 @@ import clsx from 'clsx';
 
 const mainLinks = [
   { name: 'Dashboard', href: '/dashboard', icon: LayoutGrid },
-  {
+  { name: 'Property', href: '/dashboard/properties', icon: Building2 },
+   {
     name: 'Discover',
     href: '/dashboard/discover',
     icon: Sparkles,
   },
-  { name: 'Property', href: '/dashboard/properties', icon: Building2 },
   { name: 'Agents', href: '/dashboard/agents', icon: Users },
   { name: 'Customer', href: '/dashboard/customers', icon: CalendarCheck2 },
   { name: 'Analytics', href: '/dashboard/analytics', icon: FileChartColumn },

@@ -7,15 +7,24 @@ export const metadata: Metadata = {
   description: '...',
 }
 
- export default function Layout({ children }: { children: React.ReactNode }) {
+
+
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-screen flex-col md:flex-row md:overflow-hidden w-full">
-      <div className="w-full flex-none md:w-64">
+    <div className="flex h-screen w-full overflow-hidden">
+      {/* Sidebar - fixed width */}
+      <div className="hidden md:block md:w-60 flex-shrink-0">
         <SideNav />
       </div>
-      <div  className="w-full max-md:flex-wrap">
-    <header className="h-[70px] px-6 w-full border-b-2 border-[var(--border-color)] hidden md:flex items-center"><HeaderComponent /></header>
-      <div className="overflow-y-scroll w-full h-full md:max-h-[calc(100vh-50px)]" >{children}</div>
+
+      {/* Content Area */}
+      <div className="flex flex-col flex-1 overflow-hidden">
+        <header className="px-6 py-2 border-b-2 border-[var(--border-color)] hidden md:flex items-center">
+          <HeaderComponent />
+        </header>
+        <main className="flex-1 overflow-y-auto px-4 py-6 scrollbar-hide">
+          {children}
+        </main>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import {MessagePopoverComponent} from './MessageNotification'
 
 const HeaderComponent = () => {
   return (
-    <div className='flex w-full justify-between items-center'>
+    <div className='flex flex-1 justify-between items-center'>
       <SearchComponent />
       <div className='flex items-center gap-6'>
         <div className='flex gap-6 items-center text-[var(--text-secondary)]'>

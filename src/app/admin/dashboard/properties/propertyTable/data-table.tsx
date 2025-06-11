@@ -77,10 +77,10 @@ const data = tableData
           <h2 className="text-[var(--text-primary)] font-semibold text-[18px]">{heading}</h2>
           <span className="flex gap-2 items-center">
           <Input
-          placeholder="Filter emails..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+          placeholder="Filter locations..."
+          value={(table.getColumn("location")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
+            table.getColumn("location")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
