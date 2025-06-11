@@ -1,6 +1,5 @@
 import NavLinkComponent from '@/app/features/shared/nav-links';
 import Logo from "./logo";
-import MobileHeader from './MobileHeader';
 import ThemeToggle from './ThemeToggle';
 
 export default function SideNav(){
@@ -11,7 +10,7 @@ export default function SideNav(){
           <Logo style="flex flex-row gap-2 items-center leading-none text-[24px]" width={40} height={40}/>
          </div>
             <NavLinkComponent />
-            <MobileHeader />
+       
             </div>
             <div className='flex-1 mb-10'></div>
             <div className='max-md:hidden'>
