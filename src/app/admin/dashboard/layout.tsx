@@ -26,7 +26,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <header className="md:hidden block">
       <MobileHeader />
         </header>
-        <main className="flex-1 overflow-y-auto px-4 py-6 scrollbar-hide">
+        <main className="flex-1 overflow-y-auto max-md:p-2 px-4 py-6 scrollbar-hide">
           {children}
         </main>
       </div>
