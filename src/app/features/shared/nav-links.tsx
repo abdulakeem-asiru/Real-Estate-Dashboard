@@ -18,10 +18,10 @@ const mainLinks = [
     href: '/dashboard/discover',
     icon: Sparkles,
   },
+  { name: 'Orders', href: '/dashboard/orders', icon: ClipboardList },
   { name: 'Agents', href: '/dashboard/agents', icon: Users },
   { name: 'Customer', href: '/dashboard/customers', icon: CalendarCheck2 },
   { name: 'Analytics', href: '/dashboard/analytics', icon: FileChartColumn },
-  { name: 'Orders', href: '/dashboard/orders', icon: ClipboardList },
   { name: 'Transaction', href: '/dashboard/transaction', icon: ArrowLeftRight },
 ];
 

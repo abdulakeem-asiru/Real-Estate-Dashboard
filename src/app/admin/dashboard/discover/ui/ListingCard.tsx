@@ -48,7 +48,7 @@ export function Card({ property }: CardProps) {
         height={200}
         className="object-cover rounded-xl h-[140px] w-full"
       />
-      <div className="flex flex-1  flex-wrap justify-between mt-3 border-b-2 pb-4 border-[var(--border-color)] w-full">
+      <div className="flex flex-1  flex-wrap justify-between mt-3 border-b-1 pb-4 border-[var(--border-color)] w-full">
         <div className="flex flex-col gap-1">
           <h2 className="text-lg text-[var(--text-primary)] font-medium">
             {property.title}
@@ -75,7 +75,7 @@ export function Card({ property }: CardProps) {
         </div>
       </div>
       <div className="mt-3">
-        <h3 className="text-[14px] font-medium text-[var(--text-secondary)] mb-1">
+        <h3 className="text-[14px] font-medium text-[var(--text-secondary)] mb-3">
           Facilities
         </h3>
         <div className="flex gap-1 items-center flex-wrap w-full">
@@ -92,14 +92,14 @@ export function Card({ property }: CardProps) {
             </p>
           </span>
           <span className="facilities">
-            <Grid2x2 />
+            <Grid2x2  fontWeight={400}/>
             <p className="text-[16px] text-[var(--text-secondary)]">
               {property.facilities.area} ft
             </p>
           </span>
         </div>
       </div>
-      <div className="mt-4">
+      <div className="mt-5">
         <h3 className="text-[14px] font-medium text-[var(--text-secondary)]">
           Price Range
         </h3>
