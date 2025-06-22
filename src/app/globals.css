@@ -1,7 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -47,6 +47,7 @@ input[type="number"]::-webkit-outer-spin-button {
   --text-secondary: #727272;
   --text-primary: #2e2e2e; 
   --radius: 0.625rem;
+  --bg-surfaceLv1 : #F7f7f7;
   --bg-surfaceLv2 : #FAFAFA;
   --warning : #FFF0E9;
   --text-warning : #F33F54;
@@ -126,6 +127,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .dark {
+  --bg-surfaceLv1 :  oklch(0.205 0 0);
   --bg-surfaceLv2 : oklch(0.205 0 0);
   --banner-bg : #616161;
   --primary-color: #E46323;
@@ -173,6 +175,7 @@ input[type="number"]::-webkit-outer-spin-button {
     @apply border-border outline-ring/50;
   }
   body {
+  font-family: "Inter", sans-serif;
     @apply bg-background text-foreground;
   }
   .facilities{

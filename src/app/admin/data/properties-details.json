@@ -1,0 +1,42 @@
+{
+  "id": "hayfield-willow-001",
+  "title": "Hayfield Ashton Place Residences at Willow Brook Valley",
+  "description": "Hayfield Ashton Place Residences at Willow Brook Valley evokes an elegant and serene residential community. It suggests a picturesque neighborhood with modern yet charming homes, possibly surrounded by lush greenery, rolling landscapes, or a tranquil brook. The name conveys a sense of sophistication, comfort, and exclusivity, ideal for those seeking a refined living experience in a scenic setting.",
+  "images": [
+    "https://example.com/images/main-house.jpg",
+    "https://example.com/images/interior-1.jpg",
+    "https://example.com/images/interior-2.jpg"
+  ],
+  "facilities": {
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "smartHomeSystem": true,
+    "gym": true,
+    "parking": 2,
+    "area": "1400 sq ft",
+    "pool": true,
+    "gardenView": true
+  },
+  "pricing": {
+    "rent": true,
+    "buy": false,
+    "annualPayment": 14000,
+    "minRentalDuration": "3 Years"
+  },
+  "agent": {
+    "name": "Sophia Williams",
+    "role": "Real Estate Agent",
+    "phone": "+123456789",
+    "email": "sophia.williams@example.com",
+    "image": "https://example.com/images/agent-sophia.jpg"
+  },
+  "inspection": {
+    "note": "Inspections are actions are still happening",
+    "time": "Monday-Friday at 10:00am-5:00PM"
+  },
+  "location": {
+    "address": "1668 Lincoln Drive Harrisburg, PA 17101 USA",
+    "latitude": 40.2732,
+    "longitude": -76.8867
+  }
+}

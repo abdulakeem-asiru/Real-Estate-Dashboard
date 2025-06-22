@@ -1,7 +1,8 @@
-import SideNav from "@/app/features/shared/sidenav";
-import HeaderComponent from "@/app/features/shared/header";
+import SideNav from "../navigation/shared/sidenav";
+import HeaderComponent from "../navigation/shared/header";
 import { Metadata } from 'next'
-import MobileHeader from "@/app/features/shared/MobileHeader";
+import MobileHeader from "../navigation/shared/MobileHeader";
+import MobileNavigation from "../navigation/shared/MobileNavigation";
 
 export const metadata: Metadata = {
   title: 'Safe Home -Dashboard',
@@ -29,6 +30,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <main className="flex-1 overflow-y-auto p-1 md:p-4 scrollbar-hide">
           {children}
         </main>
+        <footer className="md:hidden block">
+          <MobileNavigation />
+        </footer>
       </div>
     </div>
   );

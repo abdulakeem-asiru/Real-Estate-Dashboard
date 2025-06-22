@@ -6,31 +6,30 @@ import SalesChart from '@/app/features/dashboard/ui/chart/SalesChart'
 import { PieChartWrapper } from '@/app/features/dashboard/ui/chart/PieChart'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
+import { DataTable } from './orders/data-table'
+import { columns, Orders } from "./orders/columns"
+import { CustomersOrder } from '../data/order'
 
+async function getData(): Promise<Orders[]> {
+  // Fetch data from your API here.
+  return CustomersOrder
+}
 
 
 export default async function  DashboardPage(){
+const tableData = await getData()
 const supabase = await createClient()
-  const { data :authData, error: authError } = await supabase.auth.getUser()
-  if (authError || !authData?.user) {
+  const { data : authData, error } = await supabase.auth.getUser()
+  if (error || !authData?.user) {
     redirect('/auth/login')
-  }
-  const {data :customerData, error : customerError} = await supabase
-    .from('customers')
-    .select('*')
-    .eq('id', authData.user.id)
-    .single();
-
-     if (customerError) {
-    console.error("Customer fetch failed:", customerError.message);
   }
 
   return (
-    <div className='m-auto w-full mb-30'>
+    <div className='m-auto w-full mb-30  md:p-8 p-6'>
      <div className='md:flex items-end justify-between hidden'>
       <div className='w-full'>
         <h2 className='text-[24px] font-medium text-[var(--text-primary)] mb-1'>Dashboard</h2>
-        <p className='text-[16px] font-[500] text-[var(--text-secondary)]  max-md:w-[300px]'>Welcome <span className='text-[var(--text-primary)]'>{customerData?.name.split(' ')[0]}</span>, Let’s dive into your personalized setup guide.</p>
+        <p className='text-[16px] font-[500] text-[var(--text-secondary)]  max-md:w-[300px]'>Welcome, Let’s dive into your personalized setup guide.</p>
       </div>
       <Button className='bg-[var(--primary-color)] cursor-pointer
       py-5 px-6 text-white hover:bg-[var(--primary-color)]'><span><Plus /></span><span className='hidden md:block '>Add Property</span> </Button>
@@ -46,7 +45,9 @@ const supabase = await createClient()
         <PieChartWrapper />
       </div>
      </div> 
-    <div className='w-full h-60 bg-amber-400 mt-4 rounded-lg'></div>
+    <div className=' mt-4 rounded-lg w-full'>
+    <DataTable columns={columns} tableData={tableData} heading= "Recent Orders" filter=""/>
+    </div>
     </div>
   )
 }

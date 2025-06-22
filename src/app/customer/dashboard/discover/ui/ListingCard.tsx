@@ -110,7 +110,7 @@ export function Card({ property }: CardProps) {
             {property.priceRange.max.toLocaleString()}
           </p>
          <Button className="border-2 border-[var(--border-color)] bg-transparent py-5 cursor-pointer hover:bg-transparent text-[var(--primary-color)]">
-  <Link href={`/admin/dashboard/properties/property-details/${property.id}`}>View Details</Link>
+  <Link href={`/customer/dashboard/properties/property-details/${property.id}`}>View Details</Link>
 </Button>
         </div>
       </div>

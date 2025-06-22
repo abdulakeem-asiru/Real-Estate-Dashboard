@@ -1,28 +1,33 @@
 'use client'
-import {Menu,
-     Search,
-     Bell
+
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import clsx from 'clsx';
+import {Home,HousePlus,
+    Sparkles,
+     FileChartColumn,
+     User
      } from 'lucide-react'
-     
-import { MobileSideNav } from './MobileSideNav';
-import { PopoverComponent } from './Notification';
 
 
+const mobileLinks = [
+  { name: 'Home', href: '/dashboard', icon:Home },
+  {
+    name: 'Discover',
+    href: '/dashboard/discover',
+    icon: Sparkles,
+  },
+  { name: 'Add Prop', href: '/dashboard/properties', icon: HousePlus },
+  { name: 'Analytics', href: '/dashboard/analytics', icon: FileChartColumn },
+  { name: 'Profile', href: '/dashboard/profile', icon: User },
+];
 
-export default function MobileHeader(){
+export default function MobileNavigation(){
+ const pathname = usePathname()  
+ const adminUrl = "/admin"
     return(
         <>
-        {/* Mobile Header */}
-        <div className='flex justify-between items-center flex-1 p-4 md:hidden border-b-2
-            border-[var(--border-color)] bg-[var(--background)] z-10'>
-            <div className='flex gap-2'><MobileSideNav Hambuger={<Menu className='text-[var(--icon-secondary)]'/>}/><span className='font-medium'>Dashboard</span></div>
-            <div className='flex items-center justify-center gap-6'>
-            <Search className='text-[var(--icon-secondary)]'/>
-              <PopoverComponent BellIcon={ <Bell className='text-[var(--icon-secondary)]'/>} />
-            </div>
-        </div>
-
-         {/* Mobile navigation
+         {/* Mobile navigation */}
         <div className='md:hidden flex h-[100px] items-center justify-center p-4 w-full fixed bottom-0
          left-0 border-t-1 border-[var(--border-color)] bg-[var(--background)] z-10'>
        {mobileLinks.map((link) => {
@@ -38,7 +43,7 @@ export default function MobileHeader(){
             <p className="max-sm:hidden">{link.name}</p>
             </Link>)
         })}
-         </div> */}
+         </div>
         </>
     )
 }

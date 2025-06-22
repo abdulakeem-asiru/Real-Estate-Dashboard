@@ -1,21 +1,38 @@
-import SideNav from "@/app/features/shared/sidenav";
-import HeaderComponent from "@/app/features/shared/header";
+import SideNav from "../navigation/shared/sidenav";
+import HeaderComponent from "../navigation/shared/header";
 import { Metadata } from 'next'
+import MobileHeader from "../navigation/shared/MobileHeader";
+import MobileNavigation from "../navigation/shared/MobileNavigation";
 
 export const metadata: Metadata = {
   title: 'Safe Home -Dashboard',
   description: '...',
 }
 
- export default function Layout({ children }: { children: React.ReactNode }) {
+
+
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-screen flex-col md:flex-row md:overflow-hidden w-full">
-      <div className="w-full flex-none md:w-64">
+    <div className="flex h-screen w-full overflow-hidden">
+      {/* Sidebar - fixed width */}
+      <div className="hidden md:block md:w-60 flex-shrink-0">
         <SideNav />
       </div>
-      <div  className="w-full max-md:flex-wrap">
-    <header className="h-[90px] px-6 w-full border-b-2 border-[var(--border-color)] hidden md:flex items-center"><HeaderComponent /></header>
-      <div className="p-6 overflow-y-scroll md:p-8 h-full md:max-h-[calc(100vh-50px)]">{children}</div>
+
+      {/* Content Area */}
+      <div className="flex flex-col flex-1 overflow-hidden">
+        <header className="px-6 py-2 border-b-2 border-[var(--border-color)] hidden md:flex items-center">
+          <HeaderComponent />
+        </header>
+        <header className="md:hidden block">
+      <MobileHeader />
+        </header>
+        <main className="flex-1 overflow-y-auto p-1 md:p-4 scrollbar-hide">
+          {children}
+        </main>
+        <footer className="md:hidden block">
+          <MobileNavigation />
+        </footer>
       </div>
     </div>
   );

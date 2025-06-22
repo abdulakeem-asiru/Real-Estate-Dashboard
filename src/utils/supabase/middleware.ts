@@ -29,6 +29,7 @@ export async function updateSession(request: NextRequest) {
     "/auth/resetpassword",
     "/auth/confirm",
     "/auth/emailconfirmation",
+    "/api"
   ];
 
   const roleRoutes = {

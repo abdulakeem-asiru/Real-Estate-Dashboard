@@ -1,9 +1,9 @@
 import React from 'react'
-import LoadingComponent from '@/app/features/shared/loadingui';
+import DashboardSkeleton from '@/app/features/shared/loadingui';
 
 const loading = () => {
   return (
-    <LoadingComponent />
+    <DashboardSkeleton />
   )
 }
 
