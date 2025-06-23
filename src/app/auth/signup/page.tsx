@@ -75,10 +75,10 @@ const Company = () =>{
 };
 const TabsComponent =() =>  {
   return (
-    <Tabs defaultValue="company" className="max-w-[500px] w-full">
+    <Tabs defaultValue="customer" className="max-w-[500px] w-full">
       <TabsList className="grid w-full grid-cols-2 h-[50px]">
-        <TabsTrigger value="company" className=' transition-all data-[state=active]:bg-[var(--primary-color)] data-[state=active]:text-[#ffffff] data-[state=active]:shadow-md'>Company</TabsTrigger>
         <TabsTrigger value="customer" className='transition-all data-[state=active]:bg-[var(--primary-color)] data-[state=active]:text-[#ffffff] data-[state=active]:shadow-md'>Customer</TabsTrigger>
+        <TabsTrigger value="company" className=' transition-all data-[state=active]:bg-[var(--primary-color)] data-[state=active]:text-[#ffffff] data-[state=active]:shadow-md'>Company</TabsTrigger>
         {/* <TabsTrigger value="agent" className='transition-all data-[state=active]:bg-[var(--primary-color)] data-[state=active]:text-[#ffffff] data-[state=active]:shadow-md'>Agent</TabsTrigger> */}
       </TabsList>
       <TabsContent value="customer">

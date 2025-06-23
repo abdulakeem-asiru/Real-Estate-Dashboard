@@ -11,37 +11,36 @@ import { Form,
       FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { loginFormSchema, LoginFormSchemaType } from '@/schemas/loginSchema';
+import { EmailFormSchema, EmailFormSchemaType} from '@/schemas/loginSchema';
 import toast, { Toaster } from 'react-hot-toast'
-import { login } from '@/actions/auth';
+import { resetPasswordForEmail } from '@/actions/auth';
 import { useRouter } from 'next/navigation';
 
 
-function LoginForm() {
+function EmailForm() {
    const [isLoading, setIsLoading] = useState(false)
   const [buttonDisabled, setButtonDisabled] = useState(false)
-    const form = useForm<LoginFormSchemaType>({
-        resolver : zodResolver(loginFormSchema),
+    const form = useForm<EmailFormSchemaType>({
+        resolver : zodResolver(EmailFormSchema),
         defaultValues : {
             email : "",
-            password : ""
         }
     })
 const router = useRouter();
-const onSubmit = async (values : LoginFormSchemaType) =>{
+const onSubmit = async (values : EmailFormSchemaType) =>{
 
 setIsLoading(true)
   setButtonDisabled(true)
 
   try {
-    const response = await login(values)
+    const response = await resetPasswordForEmail(values)
 
     if (response?.error) {
       toast.error(response.error.toString())
       return
     }
-    toast.success("Authenticated successfully")
-    router.push('/dashboard')
+    toast.success("A Magic Link has been sent")
+    router.push('/auth/emailconfirmation')
   } catch (err) {
     console.log(err)
     toast.error("An unexpected error occurred")
@@ -54,38 +53,30 @@ setIsLoading(true)
   return (
     <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
-         <LoginFormField 
+         <EmailFormField 
         name='email'
         label='Email'
         placeholder='adenuga@gmail.com'
         inputType='email'
         formControl={form.control}
         />
-         <LoginFormField 
-        name='password'
-        label='Password'
-        placeholder='Create a password'
-        inputType='password'
-        description='Use a secure password'
-        formControl={form.control}
-        />
-        <Button disabled={buttonDisabled} className='w-full h-[50px] bg-[var(--primary-color)]'> {isLoading ? "Please wait..." : "Login" }</Button>
+        <Button disabled={buttonDisabled} className='w-full h-[50px] bg-[var(--primary-color)]'> {isLoading ? "Please wait..." : "Send" }</Button>
         </form>
     </Form>
   )
 }
 
 interface SignUpFormFieldProps{
-    name : FieldPath<LoginFormSchemaType>,
+    name : FieldPath<EmailFormSchemaType>,
     label : string,
     placeholder : string,
     description? : string,
     inputType? : string,
-    formControl : Control<LoginFormSchemaType >
+    formControl : Control<EmailFormSchemaType >
 
 }
 
-export const LoginFormField : React.FC<SignUpFormFieldProps> = ({
+export const EmailFormField : React.FC<SignUpFormFieldProps> = ({
     name,
     label,
     placeholder,
@@ -112,4 +103,4 @@ export const LoginFormField : React.FC<SignUpFormFieldProps> = ({
  )
 }
 
-export default LoginForm
+export default EmailForm

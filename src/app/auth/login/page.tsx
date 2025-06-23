@@ -30,8 +30,9 @@ const LoginFormField = () =>{
             <LoginForm />
           </CardContent>
           <CardFooter>
-          <CardFooter>
+          <CardFooter className='flex flex-col items-start'>
            <div className='mt-2'>Don&apos;t have an account?<Link href="/auth/signup" className='text-[var(--primary-color)]'> Sign Up</Link></div>
+           <Link href="/auth/resetpassword" className='text-[var(--primary-color)] mt-2'> Forgot Password?</Link>
           </CardFooter>
           </CardFooter>
         </Card>

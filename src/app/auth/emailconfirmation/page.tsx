@@ -5,7 +5,7 @@ import { Mail } from 'lucide-react'
 
 export default function EmailConfirmationPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
+    <div className="m-auto mt-20">
       <Card className="w-full max-w-md shadow-lg border-none">
         <CardHeader className="flex flex-col items-center space-y-2">
           <div className="bg-[#E46323]/5 p-4 rounded-full">
