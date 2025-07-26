@@ -64,7 +64,7 @@ setIsLoading(true)
          <LoginFormField 
         name='password'
         label='Password'
-        placeholder='Create a password'
+        placeholder='Enter password'
         inputType='password'
         description='Use a secure password'
         formControl={form.control}
