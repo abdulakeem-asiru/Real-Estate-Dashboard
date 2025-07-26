@@ -48,18 +48,18 @@ export default function ProjectDetailPage() {
         </div>
       </div>
       <h3 className='text-lg font-medium text-[var(--text-primary)] leading-normal'>Description</h3>
-      <p className="my-2 text-sm leading-snug font-normal text-[var(--text-primary)]">{property.description}</p>
+      <p className="my-2 text-sm leading-snug font-normal text-[var(--text-primary)]">{property?.description}</p>
       
       <div className="rounded-lg border-2 border-[var(--border-color)] bg-[var(--bg-surfaceLv2)] p-3 mt-4">
 <h3 className='text-lg font-medium text-[var(--text-primary)] leading-normal'>Property Facilities</h3>
 <div className='flex gap-10 mt-2 p-4 flex-wrap'>
-      <p className="my-2 text-sm leading-snug font-normal text-[var(--text-primary)] flex gap-2 items-center"><Bed /><span>{property.facilities.bathrooms} Bedroom</span></p>
-      <p className="my-2 text-sm leading-snug font-normal text-[var(--text-primary)] flex gap-2 items-center"><BathIcon /><span>{property.facilities.bathrooms} Bathroom</span></p>
-      {property.facilities.bathrooms ? <p className="my-2 text-sm leading-snug font-normal text-[var(--text-primary)] flex gap-2 items-center"><Home /><span> SmartHome </span></p>: null }
-      {property.facilities.gym ? <p className="my-2 text-sm leading-snug font-normal text-[var(--text-primary)] flex gap-2 items-center"><Dumbbell /><span> Gym </span></p>: null }
-      <p className="my-2 text-sm leading-snug font-normal text-[var(--text-primary)] flex gap-2 items-center"><Car /><span>{property.facilities.parking} Parking</span></p>
-      <p className="my-2 text-sm leading-snug font-normal text-[var(--text-primary)] flex gap-2 items-center"><AreaChart /><span>{property.facilities.area}</span></p>
-      {property.facilities.pool ? <p className="my-2 text-sm leading-snug font-normal text-[var(--text-primary)] flex gap-2 items-center"><SproutIcon /><span> Pool </span></p>: null }
+      <p className="my-2 text-sm leading-snug font-normal text-[var(--text-primary)] flex gap-2 items-center"><Bed /><span>{property?.facilities.bathrooms} Bedroom</span></p>
+      <p className="my-2 text-sm leading-snug font-normal text-[var(--text-primary)] flex gap-2 items-center"><BathIcon /><span>{property?.facilities.bathrooms} Bathroom</span></p>
+      {property?.facilities.bathrooms ? <p className="my-2 text-sm leading-snug font-normal text-[var(--text-primary)] flex gap-2 items-center"><Home /><span> SmartHome </span></p>: null }
+      {property?.facilities.gym ? <p className="my-2 text-sm leading-snug font-normal text-[var(--text-primary)] flex gap-2 items-center"><Dumbbell /><span> Gym </span></p>: null }
+      <p className="my-2 text-sm leading-snug font-normal text-[var(--text-primary)] flex gap-2 items-center"><Car /><span>{property?.facilities.parking} Parking</span></p>
+      <p className="my-2 text-sm leading-snug font-normal text-[var(--text-primary)] flex gap-2 items-center"><AreaChart /><span>{property?.facilities.area}</span></p>
+      {property?.facilities.pool ? <p className="my-2 text-sm leading-snug font-normal text-[var(--text-primary)] flex gap-2 items-center"><SproutIcon /><span> Pool </span></p>: null }
 </div>
       </div>
     </div>
