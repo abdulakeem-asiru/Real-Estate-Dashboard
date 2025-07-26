@@ -9,6 +9,7 @@ import { redirect } from 'next/navigation'
 import { DataTable } from './orders/data-table'
 import { columns, Orders } from "./orders/columns"
 import { CustomersOrder } from '../data/order'
+import Link from 'next/link'
 
 async function getData(): Promise<Orders[]> {
   // Fetch data from your API here.
@@ -32,7 +33,7 @@ const supabase = await createClient()
         <p className='text-[16px] font-[500] text-[var(--text-secondary)]  max-md:w-[300px]'>Welcome, Let’s dive into your personalized setup guide.</p>
       </div>
       <Button className='bg-[var(--primary-color)] cursor-pointer
-      py-5 px-6 text-white hover:bg-[var(--primary-color)]'><span><Plus /></span><span className='hidden md:block '>Add Property</span> </Button>
+      py-5 px-6 text-white hover:bg-[var(--primary-color)]'><span><Plus /></span><span className='hidden md:block '><Link href="/admin/dashboard/properties/add-property">Add Property</Link></span> </Button>
      </div>
      <div className='md:mt-4 '>
       <CardWrapper />
