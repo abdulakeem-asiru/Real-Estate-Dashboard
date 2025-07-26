@@ -70,9 +70,9 @@ export default function ProjectDetailPage() {
       <h3 className='text-lg font-medium text-[var(--text-primary)] leading-normal'>Property Pricing</h3>
 <div className='p-2'>
       <h3 className='mt-2 text-sm font-medium text-[var(--text-primary)] leading-normal'>Annual Payment</h3>
-      <p className=' mt-2 p-2 rounded-lg bg-[var(--background)] text-[var(--text-secondary)]  border-1 border-[var(--border-color)] '>NGN {property.pricing.annualPayment}</p>
+      <p className=' mt-2 p-2 rounded-lg bg-[var(--background)] text-[var(--text-secondary)]  border-1 border-[var(--border-color)] '>NGN {property?.pricing.annualPayment}</p>
         <h3 className='mt-3 text-sm font-medium text-[var(--text-primary)] leading-normal'>Minimum Rental Duration</h3>
-      <p className=' mt-2 p-2 rounded-lg bg-[var(--background)] text-[var(--text-secondary)]  border-1 border-[var(--border-color)] '>{property.pricing.minRentalDuration}</p>
+      <p className=' mt-2 p-2 rounded-lg bg-[var(--background)] text-[var(--text-secondary)]  border-1 border-[var(--border-color)] '>{property?.pricing.minRentalDuration}</p>
 
 </div>
     </div>
@@ -80,14 +80,14 @@ export default function ProjectDetailPage() {
       <h3 className='text-lg font-medium text-[var(--text-primary)] leading-normal'>Agent Details</h3>
     <div className='flex gap-2 mt-4'>
       <div className='rounded-full w-15 h-15 overflow-hidden items-center flex'>
-              <Image src={property.agent.image} alt='profilepic' width={50} height={50} 
+              <Image src={property?.agent.image || "/estate.jpg"} alt='profilepic' width={50} height={50} 
                className='object-cover'/>
             </div>
       <div>
         <h3 className='text-lg font-medium text-[var(--text-primary)]'>
-       {property.agent.name}
+       {property?.agent.name}
         </h3>
-        <p className='text-sm font-normal text-[var(--text-secondary)]'>{property.agent.role}</p>
+        <p className='text-sm font-normal text-[var(--text-secondary)]'>{property?.agent.role}</p>
       </div>
     </div>
     <div className='flex my-4 gap-2 justify-between items-center'>
@@ -101,9 +101,9 @@ export default function ProjectDetailPage() {
     <div className='flex gap-2 mt-2'>
       <div>
         <h3 className='text-sm font-medium text-[var(--text-primary)]'>
-        {property.inspection.note}
+        {property?.inspection.note}
         </h3>
-        <p className='text-sm font-normal text-[var(--text-secondary)]'>{property.inspection.time}</p>
+        <p className='text-sm font-normal text-[var(--text-secondary)]'>{property?.inspection.time}</p>
       </div>
     </div>
     <div className='flex my-4 gap-2 justify-between items-center'>
