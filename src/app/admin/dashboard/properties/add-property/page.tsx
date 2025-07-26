@@ -32,15 +32,15 @@ export default function ProjectDetailPage() {
   <div className='grid grid-cols-3 gap-4'>
     <div className='lg:col-span-2 col-span-full rounded-lg p-4 border-2 border-[var(--border-color)]'>
  <div className='md:grid-cols-5 grid-cols-2 grid w-full gap-4'>
-        <div className='col-span-3 row-span-1 '><Image src={property.images[0]} alt='propert Image' width={400} height={300} className='object-fill w-full h-full rounded-lg'/></div>
+        <div className='col-span-3 row-span-1 '><Image src={property?.images[0] || "/estate.jpg"} alt='propert Image' width={400} height={300} className='object-fill w-full h-full rounded-lg'/></div>
         <div className='md:col-span-2 col-span-3 flex flex-col gap-4' >
-          <div className='md:h-[200px] h-full'><Image src={property.images[1]} alt='property image' width={200} height={200} className='object-fill w-full h-full rounded-lg'/></div>
-          <div className='md:h-[200px] h-full'><Image src={property.images[2]} alt='property image' width={200} height={200} className='object-fill w-full h-full rounded-lg'/></div>
+          <div className='md:h-[200px] h-full'><Image src={property?.images[1] || "/estate.jpg"} alt='property image' width={200} height={200} className='object-fill w-full h-full rounded-lg'/></div>
+          <div className='md:h-[200px] h-full'><Image src={property?.images[2] || "/estate.jpg"} alt='property image' width={200} height={200} className='object-fill w-full h-full rounded-lg'/></div>
         </div>
       </div>
       <div className='flex justify-between md:items-center md:flex-row flex-col items-start mb-4'>
       <h1 className="text-2xl my-5 lg:max-w-[550px]
-       w-full leading-normal text-[var(--text-primary)] font-medium">{property.title}</h1>
+       w-full leading-normal text-[var(--text-primary)] font-medium">{property?.title}</h1>
       <div className='flex gap-4'>
         <Share2 className='border-2 border-[var(--border-color)] text-[var(--text-primary)] w-8 h-8 p-1 cursor-pointer rounded-lg'/>
         <Heart className='border-2 border-[var(--border-color)] w-8 h-8 p-1 cursor-pointer rounded-lg text-[#335cff]' fill='#335CFF'/>
