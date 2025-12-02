@@ -101,7 +101,7 @@ export function PieChartWrapper() {
       </CardContent>
       <CardFooter className="flex justify-around items-center gap-2 text-sm">
         <div className="flex items-center gap-2 font-medium leading-none">
-            <div className="border-2 p-2 border-[var(--border-color)] 
+            <div className="border p-2 border-[var(--border-color)] 
                     bg-[var(--icon-background)] rounded-lg">
 
          <Wallet className="h-6 w-6 text-[var(--icon-color)]" /> 
@@ -113,7 +113,7 @@ export function PieChartWrapper() {
             </div>
         </div>
    <div className="flex items-center gap-2 font-medium leading-none">
-            <div className="border-2 p-2 border-[var(--border-color)] 
+            <div className="border p-2 border-[var(--border-color)] 
                     bg-[var(--icon-background)] rounded-lg">
          <Wallet className="h-6 w-6 text-[var(--icon-color)]" />    
             </div>

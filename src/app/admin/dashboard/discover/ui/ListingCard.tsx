@@ -41,7 +41,7 @@ interface CardProps {
 
 export function Card({ property }: CardProps) {
   return (
-    <div className="w-full min-w-[250px] border-2 border-[var(--border-color)] p-4 rounded-2xl col-span-1">
+    <div className="w-full min-w-[250px] border border-[var(--border-color)] p-4 rounded-2xl col-span-1">
       <Image
         src={property.imageUrl}
         alt="Property Image"
@@ -109,7 +109,7 @@ export function Card({ property }: CardProps) {
             ₦{property.priceRange.min.toLocaleString()} - ₦
             {property.priceRange.max.toLocaleString()}
           </p>
-         <Button className="border-2 border-[var(--border-color)] bg-transparent py-5 cursor-pointer hover:bg-transparent text-[var(--primary-color)]">
+         <Button className="border border-[var(--border-color)] bg-transparent py-5 cursor-pointer hover:bg-transparent text-[var(--primary-color)]">
   <Link href={`/admin/dashboard/properties/property-details/${property.id}`}>View Details</Link>
 </Button>
         </div>

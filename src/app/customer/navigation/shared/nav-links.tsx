@@ -42,7 +42,7 @@ export default function NavLinkComponent(){
         <Link key={link.name}
             href={customerUrl+link.href}
             className={clsx( "flex h-[40px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] pl-3 items-center gap-2 text-[16px]",
-             {"text-[var(--text-primary)] border-[var(--border-color)] border-2 rounded-xl font-medium": pathname === customerUrl+link.href,},
+             {"text-[var(--text-primary)] border-[var(--border-color)] border rounded-xl font-medium": pathname === customerUrl+link.href,},
         )}
             >
              <LinkIcon className="w-6" />
@@ -62,7 +62,7 @@ export default function NavLinkComponent(){
         <Link key={link.name}
             href={link.href}
             className={clsx( "flex h-[40px] text-[var(--text-secondary)] hover:text-[var(--text-primary)]  pl-3 items-center gap-2 text-[16px]",
-             {"text-[var(--text-primary)]  border-[var(--border-color)] border-2 rounded-lg font-medium": pathname === link.href,},
+             {"text-[var(--text-primary)]  border-[var(--border-color)] border rounded-lg font-medium": pathname === link.href,},
         )}
             >
              <LinkIcon className="w-6" />

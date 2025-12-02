@@ -17,7 +17,7 @@ interface SelectComponentProp {
 export function SelectComponent({button} : SelectComponentProp) {
   return (
     <Select>
-      <SelectTrigger className="border-[var(--border-color)] border-2
+      <SelectTrigger className="border-[var(--border-color)] border
       font-medium text-[14px] text-[var(--text-secondary)]">
         {button}
          <SelectValue placeholder="Last Month"/>

@@ -72,7 +72,7 @@ const data = tableData
     },
   })
   return (
-      <div className="w-full p-4 border-2 border-[var(--border-color)] rounded-lg bg-[var(--background)] relative oveflow-x-auto">
+      <div className="w-full p-4 border border-[var(--border-color)] rounded-lg bg-[var(--background)] relative oveflow-x-auto">
         <div className="flex items-center justify-between py-4 max-sm:flex-col max-sm:items-start gap-2">
           <h2 className="text-[var(--text-primary)] font-semibold text-[18px]">{heading}</h2>
           <span className="flex gap-2 items-center">
@@ -114,7 +114,7 @@ const data = tableData
         </DropdownMenu>
          </span>
       </div>
-    <div className="rounded-lg border-2 border-[var(--border-color)] p-1">
+    <div className="rounded-lg border border-[var(--border-color)] p-1">
       <Table className="table-auto">
         <TableHeader className="w-full">
           {table.getHeaderGroups().map((headerGroup) => (

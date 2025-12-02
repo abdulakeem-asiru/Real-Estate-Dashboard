@@ -46,7 +46,7 @@ export default function MobileNavLink(){
         <Link key={link.name}
             href={adminUrl+link.href}
             className={clsx( "flex h-[40px] text-[#727272] hover:text-black  pl-3 items-center gap-2 text-[16px]",
-             {"text-[var(--text-primary)] border-[var(--border-color)] border-2 rounded-xl font-medium": pathname === adminUrl+link.href,},
+             {"text-[var(--text-primary)] border-[var(--border-color)] border rounded-xl font-medium": pathname === adminUrl+link.href,},
         )}
             >
              <LinkIcon className="w-6" />
@@ -66,7 +66,7 @@ export default function MobileNavLink(){
         <Link key={link.name}
             href={adminUrl+link.href}
             className={clsx( "flex h-[40px] text-[#727272] hover:text-black  pl-3 items-center gap-2 text-[16px]",
-             {"text-[var(--text-primary)]  border-[var(--border-color)] border-2 rounded-lg font-medium": pathname === adminUrl+link.href,},
+             {"text-[var(--text-primary)]  border-[var(--border-color)] border rounded-lg font-medium": pathname === adminUrl+link.href,},
         )}
             >
              <LinkIcon className="w-6" />

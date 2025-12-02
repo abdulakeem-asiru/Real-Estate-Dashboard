@@ -40,9 +40,9 @@ export function Card({
   const Icon = iconMap[type];
 
   return (
-    <div className=" flex-1 min-w-[250px]  border-2 border-[var(--border-color)] p-4 rounded-lg flex flex-col gap-6">
+    <div className=" flex-1 min-w-[250px]  border border-[var(--border-color)] p-4 rounded-lg flex flex-col gap-6">
      <div className='flex justify-between items-center'>
-    {Icon ? <Icon className="h-10 w-10 text-[var(--icon-color)] p-2 rounded-lg border-2 border-[var(--border-color)]" /> : null}
+    {Icon ? <Icon className="h-10 w-10 text-[var(--icon-color)] p-2 rounded-lg border border-[var(--border-color)]" /> : null}
     <Image src={image} alt="Card Image" width={100} height={100}/>
      </div>
      <div>

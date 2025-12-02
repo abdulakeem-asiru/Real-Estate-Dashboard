@@ -37,7 +37,7 @@ const [filter, setFilter] = useState<string>('');
             placeholder="Search..."
             value={filter}
             onChange={handleFilterChange}
-            className="max-w-sm h-12 border-2 border-[var(--border-color)]"
+            className="max-w-sm h-12 border border-[var(--border-color)]"
           />
       </div>
     </div>

@@ -28,8 +28,8 @@ const Customer = () =>{
      <Card className='border-none shadow-none'>
           <CardContent className="space-y-2">
             <div className='grid grid-cols-2 gap-4 justify-center items-start w-full'>
-              <Button className='max-md:col-span-2 flex gap-2 h-[50px] bg-transparent border-[var(--border-color)] border-2 text-sm font-medium p-4 hover:bg-transparent hover:scale-[1.1] cursor-pointer text-[var(--text-secondary)] '><Image src={google} alt='google icon' width={30} height={30}/>Sign Up with Google</Button>
-              <Button className='max-md:col-span-2 flex gap-2 h-[50px] bg-transparent border-[var(--border-color)] border-2 text-sm font-medium p-4 hover:bg-transparent hover:scale-[1.1] cursor-pointer text-[var(--text-secondary)] '><Image src={apple} alt='google icon' width={30} height={30} className='bg-white rounded-sm'/>Sign Up with Apple</Button>
+              <Button className='max-md:col-span-2 flex gap-2 h-[50px] bg-transparent border-[var(--border-color)] border text-sm font-medium p-4 hover:bg-transparent hover:scale-[1.1] cursor-pointer text-[var(--text-secondary)] '><Image src={google} alt='google icon' width={30} height={30}/>Sign Up with Google</Button>
+              <Button className='max-md:col-span-2 flex gap-2 h-[50px] bg-transparent border-[var(--border-color)] border text-sm font-medium p-4 hover:bg-transparent hover:scale-[1.1] cursor-pointer text-[var(--text-secondary)] '><Image src={apple} alt='google icon' width={30} height={30} className='bg-white rounded-sm'/>Sign Up with Apple</Button>
             </div>
             <div className="flex items-center gap-4 my-4">
   <hr className="flex-grow border-[var(--border-color)]" />

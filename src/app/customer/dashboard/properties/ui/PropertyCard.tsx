@@ -57,7 +57,7 @@ export function Card({title, value, type, stat}: CardProp) {
   const Icon = iconMap[type];
 
   return (
-    <div className="flex-1 min-w-[250px] w-full border-2 border-[var(--border-color)] rounded-lg flex flex-col gap-6">
+    <div className="flex-1 min-w-[250px] w-full border border-[var(--border-color)] rounded-lg flex flex-col gap-6">
       <div className="flex justify-between items-start px-4 pt-3 pb-1">
         <div className='flex flex-col gap-2'>
           <h3 className='capitalize text-[var(--text-secondary)]'>{title}</h3>
@@ -65,7 +65,7 @@ export function Card({title, value, type, stat}: CardProp) {
         </div>
         <div>
           {Icon ? (
-            <Icon className="h-10 w-10 text-[var(--icon-color)] p-2 rounded-lg border-2 border-[var(--border-color)]" />
+            <Icon className="h-10 w-10 text-[var(--icon-color)] p-2 rounded-lg border border-[var(--border-color)]" />
           ) : null}
         </div>
       </div>

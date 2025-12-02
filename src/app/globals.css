@@ -179,6 +179,6 @@ input[type="number"]::-webkit-outer-spin-button {
     @apply bg-background text-foreground;
   }
   .facilities{
-    @apply text-[var(--text-primary)] flex gap-2 items-center font-normal justify-start py-1 px-2 w-full min-w-[104px] flex-1  border-2 border-[var(--border-color)] rounded-[10px];
+    @apply text-[var(--text-primary)] flex gap-2 items-center font-normal justify-start py-1 px-2 w-full min-w-[104px] flex-1  border border-[var(--border-color)] rounded-[10px];
   }
 }

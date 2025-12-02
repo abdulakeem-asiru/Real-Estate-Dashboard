@@ -38,7 +38,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
         </div>
       </div>
   <div className='grid grid-cols-4 gap-4'>
-    <div className='lg:col-span-3 col-span-full rounded-lg p-4 border-2 border-[var(--border-color)]'>
+    <div className='lg:col-span-3 col-span-full rounded-lg p-4 border border-[var(--border-color)]'>
  <div className='md:grid-cols-5 grid-cols-2 grid w-full gap-4'>
         <div className='col-span-3 row-span-1 '><Image src={property.images[0]} alt='propert Image' width={400} height={300} className='object-fill w-full h-full rounded-lg'/></div>
         <div className='md:col-span-2 col-span-3 flex flex-col gap-4' >
@@ -50,15 +50,15 @@ export default function ProjectDetailPage({ params }: PageProps) {
       <h1 className="text-2xl my-5 lg:max-w-[550px]
        w-full leading-normal text-[var(--text-primary)] font-medium">{property.title}</h1>
       <div className='flex gap-4'>
-        <Share2 className='border-2 border-[var(--border-color)] text-[var(--text-primary)] w-8 h-8 p-1 cursor-pointer rounded-lg'/>
-        <Heart className='border-2 border-[var(--border-color)] w-8 h-8 p-1 cursor-pointer rounded-lg text-[#335cff]' fill='#335CFF'/>
-        <MoreVerticalIcon className='border-2 border-[var(--border-color)] text-[var(--text-primary)] w-8 h-8 p-1 cursor-pointer rounded-lg'/> 
+        <Share2 className='border border-[var(--border-color)] text-[var(--text-primary)] w-8 h-8 p-1 cursor-pointer rounded-lg'/>
+        <Heart className='border border-[var(--border-color)] w-8 h-8 p-1 cursor-pointer rounded-lg text-[#335cff]' fill='#335CFF'/>
+        <MoreVerticalIcon className='border border-[var(--border-color)] text-[var(--text-primary)] w-8 h-8 p-1 cursor-pointer rounded-lg'/> 
         </div>
       </div>
       <h3 className='text-lg font-medium text-[var(--text-primary)] leading-normal'>Description</h3>
       <p className="my-2 text-sm leading-snug font-normal text-[var(--text-primary)]">{property.description}</p>
       
-      <div className="rounded-lg border-2 border-[var(--border-color)] bg-[var(--bg-surfaceLv2)] p-3 mt-4">
+      <div className="rounded-lg border border-[var(--border-color)] bg-[var(--bg-surfaceLv2)] p-3 mt-4">
 <h3 className='text-lg font-medium text-[var(--text-primary)] leading-normal'>Property Facilities</h3>
 <div className='flex gap-10 gap-y-4 mt-2 p-4 flex-wrap'>
       <p className="my-2 text-sm leading-snug font-normal text-[var(--text-primary)] flex gap-2 items-center"><Bed /><span>{property.facilities.bathrooms} Bedroom</span></p>
@@ -73,8 +73,8 @@ export default function ProjectDetailPage({ params }: PageProps) {
     </div>
 
 
-    <aside className='rounded-lg p-2 border-2 border-[var(--border-color)] lg:col-span-1 col-span-4'>
-        <div className=' bg-[var(--bg-surfaceLv1)] p-2 rounded-lg border-2 border-[var(--border-color)]'>
+    <aside className='rounded-lg p-2 border border-[var(--border-color)] lg:col-span-1 col-span-4'>
+        <div className=' bg-[var(--bg-surfaceLv1)] p-2 rounded-lg border border-[var(--border-color)]'>
       <h3 className='text-lg font-medium text-[var(--text-primary)] leading-normal'>Property Pricing</h3>
 <div className='p-2'>
       <h3 className='mt-2 text-sm font-medium text-[var(--text-primary)] leading-normal'>Annual Payment</h3>
@@ -84,7 +84,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
 
 </div>
     </div>
-           <div className='mt-5 bg-[var(--bg-surfaceLv1)] p-2 rounded-lg border-2 border-[var(--border-color)]'>
+           <div className='mt-5 bg-[var(--bg-surfaceLv1)] p-2 rounded-lg border border-[var(--border-color)]'>
       <h3 className='text-lg font-medium text-[var(--text-primary)] leading-normal'>Agent Details</h3>
     <div className='flex gap-2 mt-4'>
       <div className='rounded-full w-15 h-15 overflow-hidden items-center flex'>
@@ -100,11 +100,11 @@ export default function ProjectDetailPage({ params }: PageProps) {
     </div>
     <div className='flex my-4 gap-2 justify-between items-center'>
         <Button className=' cursor-pointer w-[120px] py-6 bg-[var(--primary-color)]'><Phone /> Call Us</Button>
-        <Button className='cursor-pointer w-[120px] py-6 bg-[var(--bg-sufaceLv2)] hover:bg-[var(--bg-sufaceLv2)] border-2 border-[var(--border-color)] text-[var(--text-primary)] '><MessageCircle /> Message</Button>
+        <Button className='cursor-pointer w-[120px] py-6 bg-[var(--bg-sufaceLv2)] hover:bg-[var(--bg-sufaceLv2)] border border-[var(--border-color)] text-[var(--text-primary)] '><MessageCircle /> Message</Button>
       </div>
     </div>
 
-            <div className='mt-5 bg-[var(--bg-surfaceLv1)] p-2 rounded-lg border-2 border-[var(--border-color)]'>
+            <div className='mt-5 bg-[var(--bg-surfaceLv1)] p-2 rounded-lg border border-[var(--border-color)]'>
       <h3 className='text-lg font-medium text-[var(--text-primary)] leading-normal'>Inspection Times</h3>
     <div className='flex gap-2 mt-2'>
       <div>
