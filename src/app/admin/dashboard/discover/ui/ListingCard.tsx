@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { ListedProperties } from "@/app/admin/data/Listing";
 import Image from "next/image";
 import { BedSingle, Grid2x2, MapPinHouse, Star, Toilet } from "lucide-react";
@@ -26,12 +26,44 @@ interface Property {
 }
 
 export default function CardWrapper() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
+  const indexOfLastItem = currentPage * itemsPerPage;
+const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+const currentItems = ListedProperties.slice(indexOfFirstItem, indexOfLastItem);
+const totalPages = Math.ceil(ListedProperties.length / itemsPerPage);
+
   return (
+    <div>
+
     <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-8 items-center">
-      {ListedProperties.map((property: Property, key: number) => (
+      {currentItems.map((property: Property, key: number) => (
         <Card key={key} property={property} />
       ))}
     </div>
+    <div className="flex items-center justify-center gap-4 mt-8">
+  <button
+    disabled={currentPage === 1}
+    onClick={() => setCurrentPage(currentPage - 1)}
+    className="px-4 py-2 border rounded disabled:opacity-50"
+  >
+    Previous
+  </button>
+
+  <span className="font-medium">
+    Page {currentPage} of {totalPages}
+  </span>
+
+  <button
+    disabled={currentPage === totalPages}
+    onClick={() => setCurrentPage(currentPage + 1)}
+    className="px-4 py-2 border rounded disabled:opacity-50"
+  >
+    Next
+  </button>
+</div>
+
+      </div>
   );
 }
 

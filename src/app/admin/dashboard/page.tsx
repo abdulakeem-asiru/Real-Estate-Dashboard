@@ -12,7 +12,7 @@ import { CustomersOrder } from '../data/order'
 import Link from 'next/link'
 
 async function getData(): Promise<Orders[]> {
-  // Fetch data from your API here.
+  // Fetch data from API here.
   return CustomersOrder
 }
 
